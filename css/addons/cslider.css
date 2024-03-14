@@ -1,0 +1,85 @@
+/** Slider with controls.**/
+/* Depends on:
+ * js/cslider.js
+ * 
+ */
+
+/*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
+/*
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/addons/cslider.css">       <!-- !!! -->
+    <script src="js/addons/cslider.js" defer></script>          <!-- !!! -->
+</head>
+
+    <div class="cslider">
+        <span class="prev"></span>
+        <ul>
+            <li><img src="https://fakeimg.pl/300x300" alt=""></li>
+            <li><img src="https://fakeimg.pl/300x300" alt=""></li>
+            <li><img src="https://fakeimg.pl/300x300" alt=""></li>
+            <li><img src="https://fakeimg.pl/300x300" alt=""></li>
+            <li><img src="https://fakeimg.pl/300x300" alt=""></li>
+            <li><img src="https://fakeimg.pl/300x300" alt=""></li>
+        </ul>
+        <span class="next"></span>
+    </div>
+
+*/
+
+.cslider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.cslider>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    
+}
+
+.cslider>ul>li {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+    translate: 0rem;
+    transition: all 1s;
+
+}
+
+.cslider>ul>li img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.cslider {
+    position: relative;
+
+}
+.cslider>.prev::before, .cslider>.next::before{
+    content: '<';
+    color: lightgray;
+    padding: 0.3rem;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #00000099;
+    border-radius: 30%;
+}
+.cslider>.next::before{
+    content: '>';
+    right: 5px;
+}
+.cslider>.prev::before{
+    left: 5px;
+}

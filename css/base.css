@@ -1,0 +1,148 @@
+/*global variables*/
+body {
+    --max-wrapper-width: 1300px;
+    --wrapper-width: 95%;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, 
+label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer,
+header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    color: var(--gray-6);
+    font-family: var(--body-font);
+    line-height: 1.5rem
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+}
+
+h1 {
+    color: var(--color-6);
+    font-size: 2.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+h2 {
+    color: var(--color-4);
+    font-size: 2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    line-height: 2.2rem;
+}
+
+h3 {
+    color: var(--color-5);
+    font-size: 1.75em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    line-height: 2rem;
+}
+
+h4 {
+    color: var(--color-5);
+    font-size: 1.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    line-height: 2rem;
+
+}
+
+h5 {
+    color: var(--color-5);
+    font-size: 1.25em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    line-height: 1.75rem;
+}
+
+h6 {
+    color: var(--color-5);
+    font-size: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    line-height: 1.5rem;
+}
+
+p {
+    font-size: 1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+a {
+    color: var(--contrast-color-6);
+}
+
+blockquote {
+    position: relative;
+    background-color: var(--contrast-color-2);
+    font-style: italic;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+blockquote::before{
+    content: '"';
+    font-size: 2rem;
+    position: absolute;
+    top: 0px;
+    left: 1rem;
+}
+blockquote::after{
+    content: '"';
+    font-size: 2rem;
+    position: absolute;
+    bottom: -0.5rem;
+    right: 1rem;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+td, th{
+    padding: 0.5rem;
+    border: 1px solid var(--gray-6);
+}
+
+/*Forms*/
+textarea {
+    width: 100%;
+    max-width: 400px;
+    min-height: 10rem;
+    resize:vertical; /*permet redimensionar verticalment*/
+    background-color: transparent;
+
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px dotted var(--gray-3);
+    border-right: 1px dotted var(--gray-3);
+    outline: none;
+}
+
+input[type="submit"], input[type="reset"] {
+    min-width: 100px;
+    padding: 0.5rem 1rem;
+    border: solid 1px var(--gray-3);
+    border-radius: 10px;
+    background-color: var(--gray-5);
+    text-align: center;
+    text-decoration: none;
+    color: var(--gray-1);
+}
+input[type="submit"]:active input[type="reset"]:active {
+    box-shadow: 0 0 4px 1px var(--gray-5);
+}
+input[type="submit"]:hover input[type="reset"]:hover {
+    background-color: var(--gray-4);
+}

@@ -1,0 +1,122 @@
+body { /*Default*/
+    --header-font: 'Times New Roman', Times, serif;
+    --body-font: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*Other settings. For the whole html use this class at <body>*/
+.roboto-merriweather {
+    --header-font:Merriweather, serif;
+    --body-font: Roboto, sans-serif;
+}
+.only-roboto{
+    --header-font: Roboto, sans-serif;
+    --body-font: Roboto, sans-serif;
+}
+.only-montserrat {
+    --header-font: Montserrat, sans-serif;
+    --body-font: Montserrat, sans-serif;
+}
+.only-raleway {
+    --header-font: Raleway, sans-serif;
+    --body-font: Raleway, sans-serif;
+}
+
+@font-face {
+    font-family:'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Roboto';
+    src: url('../fonts/Roboto/Roboto-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Roboto';
+    src: url('../fonts/Roboto/Roboto-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family:'Roboto';
+    src: url('../fonts/Roboto/Roboto-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family:'Merriweather';
+    src: url('../fonts/Merriweather/Merriweather-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Merriweather';
+    src: url('../fonts/Merriweather/Merriweather-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Merriweather';
+    src: url('../fonts/Merriweather/Merriweather-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family:'Merriweather';
+    src: url('../fonts/Merriweather/Merriweather-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family:'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-BlackItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family:'Montserrat';
+    src: url('../fonts/Montserrat/static/Montserrat-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family:'Raleway';
+    src: url('../fonts/Raleway/static/Raleway-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Raleway';
+    src: url('../fonts/Raleway/static/Raleway-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Raleway';
+    src: url('../fonts/Raleway/static/Raleway-BlackItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family:'Raleway';
+    src: url('../fonts/Raleway/static/Raleway-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
