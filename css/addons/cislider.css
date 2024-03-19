@@ -1,8 +1,6 @@
-/** Slider with controls.
- *    It's better to use cislider.css + cislider.js (it have an optional index and better code organization)
- */
+/** Slider with controls.**/
 /* Depends on:
- * js/cslider.js
+ * js/cislider.js
  * 
  */
 
@@ -13,14 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/addons/cslider.css">       <!-- !!! -->
-    <script src="js/addons/cslider.js" defer></script>          <!-- !!! -->
+    <link rel="stylesheet" href="css/addons/cislider.css">       <!-- !!! -->
+    <script src="js/addons/cislider.js" defer></script>          <!-- !!! -->
 </head>
-
+<body>
+    
     <div style="width: 200px">
         
-        <div class="cslider">
-            <span class="prev"></span>
+        <div class="cislider">
+            <span class="cislider-prev"></span>     <!--Optional-->
             <ul>
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
@@ -29,19 +28,21 @@
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
             </ul>
-            <span class="next"></span>
+            <span class="cislider-next"></span>      <!--Optional-->
+            <div class="cislider-navigation"></div>  <!--Optional-->
         </div>
-        
+
     </div>
+</body>
 
 */
 
-.cslider {
+.cislider {
     width: 100%;
     overflow: hidden;
 }
 
-.cslider>ul {
+.cislider>ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -50,7 +51,7 @@
     
 }
 
-.cslider>ul>li {
+.cislider>ul>li {
     flex: 0 0 auto;
     width: 100%;
     text-align: center;
@@ -59,17 +60,17 @@
 
 }
 
-.cslider>ul>li img {
+.cislider>ul>li img {
     width: 100%;
     max-width: 100%;
     max-height: 100%;
 }
 
-.cslider {
+.cislider {
     position: relative;
 
 }
-.cslider>.prev::before, .cslider>.next::before{
+.cislider>.cislider-prev::before, .cislider>.cislider-next::before{
     content: '<';
     color: lightgray;
     padding: 0.3rem;
@@ -82,10 +83,33 @@
     background-color: #00000099;
     border-radius: 30%;
 }
-.cslider>.next::before{
+.cislider>.cislider-next::before{
     content: '>';
     right: 5px;
 }
-.cslider>.prev::before{
+.cislider>.cislider-prev::before{
     left: 5px;
 }
+
+.cislider-circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #888;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.cislider-circle:hover {
+    background-color: #333;
+}
+
+.cislider-navigation {
+    position: absolute;
+    z-index: 1;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+
