@@ -96,6 +96,8 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: 0 0 3px 1px #595959;
     background-color: #888;
     margin: 0 5px;
     cursor: pointer;
@@ -104,7 +106,9 @@
 .cislider-circle:hover {
     background-color: #333;
 }
-
+.cislider-circle.active {
+    background-color: #333;
+}
 .cislider-navigation {
     position: absolute;
     z-index: 1;
