@@ -1,0 +1,250 @@
+/** Responsive menu bar with subitems (2 levels).**/
+/* Depends on:
+ * js/menu-bar2.js
+ * css/bootstrap-icons.css
+ */
+
+/*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/colors/my-color-schema.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">   <!--necessary-->
+    <link rel="stylesheet" href="css/menu-bar2.css">         <!-- !!! -->
+    <script src="js/addons/menu-bar2.js" defer></script>     <!-- !!! -->
+    <title>Document</title>
+</head>
+<body>
+    <nav class="menu-bar2">
+        <ul>
+            <li class="active"><span>item</span></li>
+            <li><a href="">item</a></li>
+            <li><a href="">Item</a>
+                <ul>
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Item</a></li>
+                </ul>
+            </li>
+            <li><span>Item</span>
+                <ul>
+                    <li><a href="">Iteaam</a></li>
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Iteaam</a></li>
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Item</a></li>
+                </ul>
+            </li>
+            <li><a href="">Item</a></li>
+            <li><span>Item</span>
+                <ul>
+                    <li><a href="">Item</a></li>
+                    <li><a href="">Iteaaaaam</a></li>
+                    <li><a href="">Item</a></li>
+                </ul>
+            </li>
+        </ul>
+        <span class="menu-bar2-icon bs-icons-list"></span> <!--The icon, could be an icon character-->
+    </nav>
+</body>
+</html>
+
+*/
+
+
+
+
+.menu-bar2 {
+    /*Variables*/
+    --background: var(--gray-1, #F2F2F2); /*the background color of the ul (not the items!!)*/
+    --main-items-min-width-horizontal: 50px; /*Minimal width of the primary items when the menu is shown horizontally*/
+    --secondary-items-min-width-horizontal:50px; /*Minimal width of the secondary items when the menu is shown horizontally*/
+    --horizontal-grow: 1; /*0 won't grow on horizontal view, any other number main items will grow*/
+    --horizontal-justify-content: flex-end; /*set --horizontal-grow variable to 0 if this variable effect is wanted. flex-end will align the items to the right, flex-start will allign the items to the right... (flexbox)*/
+    
+    --height: 25px; /*burguer button bar height on the compact view (small screens)*/
+    --menu-icon-font-size: 25px; /*ideally the same than --height variable or little greater. For the compact view (small screens)*/            
+}
+
+.menu-bar2 ul {
+    background-color: var(--background);
+}
+.menu-bar2>ul>li span {
+        cursor: default;
+}
+.menu-bar2>ul>li a:hover {
+        background-color: var(--gray-6);
+        color: var(--color-1);
+}
+.menu-bar2>ul>li span:hover {
+        background-color: var(--gray-5);
+        color: var(--gray-1);
+}
+.menu-bar2>ul>li>ul>li>a{
+        background-color: var(--color-4);
+        color: var(--gray-1);
+}
+.menu-bar2>ul>li>a, .menu-bar2>ul>li>span {
+        background-color: var(--color-6);
+        color: var(--gray-1);
+}
+.menu-bar2 li.active a,  .menu-bar2 li.active span{
+        background-color: var(--gray-5);
+        color: var(--color-1);
+}
+
+/* Extra small and small devices (phones, portrait tablets and large phones, 600px and up) *//*xs,sm*/
+@media only screen and (max-width: 768px) {
+    .menu-bar2 {
+        height: var(--height);
+    }
+
+    /*menu-bar2-icon*/
+    .menu-bar2 .menu-bar2-icon {
+        display: inline-flex;
+        margin-right: 30px;
+        font-size: var(--menu-icon-font-size);
+        color: var(--gray-6, #F2F2F2);
+        cursor: pointer;
+    }
+    .menu-bar2.show .menu-bar2-icon::before {
+        content: "\f659";
+    }
+
+    /*menu-bar2>ul, the main ul*/
+    .menu-bar2>ul{
+        visibility: hidden;
+        position: absolute;
+        top: var(--height);
+        transform: scale(1, 0);
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    .menu-bar2.show>ul {
+        visibility: visible;
+        transform: scale(1, 1);
+        transition-property: transform;
+        transition-duration: 200ms;
+        transition-delay: 40ms;
+        transform-origin: top center;
+    }
+
+    /*menu-bar2>ul>li, the main li's*/
+    .menu-bar2>ul>li {
+        width: 100%;
+    }
+
+    /*menu-bar2>ul>li a, All the a and span (main and secondary)'s*/
+    .menu-bar2>ul>li a, .menu-bar2>ul>li span{
+        display: block;
+        padding: 0.2rem 0.5rem;
+        margin: 1px;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+    }
+
+    /*.menu-bar2>ul>li>ul, .menu-bar2>ul>span>ul, All the secondary lists*/
+    .menu-bar2>ul>li>ul, .menu-bar2>ul>span>ul{
+        overflow: hidden;
+        max-height: 0px;
+        background-color: var(--color-5);
+        color: var(--gray-1);
+        transition: max-height 0.5s ease;
+    }
+
+    /*.menu-bar2>ul>li:hover>ul,  When the parent of a secondary list is hover (show secondary list)*/
+    .menu-bar2>ul>li:hover>ul {
+        visibility: visible;
+        max-height: 200px;
+        transition: max-height 0.5s ease;
+    }
+
+
+}
+/* Medium devices (landscape tablets, 768px and up) *//*md*/
+@media only screen and (min-width: 768px) {
+    /*Menu-bar2-Icon*/
+    .menu-bar2 .menu-bar2-icon {
+        display: none;
+    }
+
+    /*menu-bar2>ul, the main ul*/
+    .menu-bar2>ul{
+        transform: scale(1, 1);
+        transition-property: transform;
+        transition-duration: 200ms;
+        transition-delay: 40ms;
+        transform-origin: top center;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: var(--horizontal-justify-content);
+    }
+
+    /*menu-bar2>ul>li, the main li's*/
+    .menu-bar2>ul>li {
+        flex-grow: var(--horizontal-grow);
+        flex-shrink: 1;
+        flex-basis: auto;
+        min-width: var(--main-items-min-width-horizontal);
+    }
+
+    /*menu-bar2>ul>li a, All the a and span(main and secondary)'s*/
+    .menu-bar2>ul>li a, .menu-bar2>ul>li span {
+        display: block;
+        padding: 0.2rem 0.5rem;
+        margin: 1px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    /*.menu-bar2>ul>li>ul, the secondary lists*/
+    .menu-bar2>ul>li>ul{
+        position: absolute;
+        transform: scale(1,0);
+        transition-property: transform;
+        transition-duration: 200ms;
+        transition-delay: 40ms;
+        transform-origin: top center;
+    }
+
+    /*.menu-bar2>ul>li>ul>li, the secondary list items*/
+    .menu-bar2>ul>li>ul>li {
+        min-width: var(--secondary-items-min-width-horizontal);
+    }
+
+    /*.menu-bar2>ul>li:hover>ul, When the parent of a secondary list is hover (show secondary list)*/
+    .menu-bar2>ul>li:hover>ul{
+        transform: scale(1, 1);
+        transition-property: transform;
+        transition-duration: 200ms;
+        transition-delay: 40ms;
+        transform-origin: top center;
+    }
+
+
+
+
+
+}
+/* Large devices (laptops/desktops, 992px and up) *//*lg*/
+@media only screen and (min-width: 992px) {
+
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) *//*xl*/
+@media only screen and (min-width: 1200px) {
+
+}
+/* Extra Extra large devices (large laptops and desktops, 1200px and up) *//*xxl*/
+@media only screen and (min-width: 1400px) {
+
+}
