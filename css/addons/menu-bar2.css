@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/bootstrap-icons.css">   <!--necessary-->
-    <link rel="stylesheet" href="css/menu-bar2.css">         <!-- !!! -->
+    <link rel="stylesheet" href="css/addons/menu-bar2.css">  <!-- !!! -->
     <script src="js/addons/menu-bar2.js" defer></script>     <!-- !!! -->
     <title>Document</title>
 </head>
@@ -71,6 +71,9 @@
     
     --height: 25px; /*burguer button bar height on the compact view (small screens)*/
     --menu-icon-font-size: 25px; /*ideally the same than --height variable or little greater. For the compact view (small screens)*/            
+    --icon-alignment: right; /*Where the menu icon will be displayed: right, left, center*/
+
+    position: relative;
 }
 
 .menu-bar2 ul {
@@ -104,12 +107,14 @@
 @media only screen and (max-width: 768px) {
     .menu-bar2 {
         height: var(--height);
+        text-align: var(--icon-alignment);
     }
 
     /*menu-bar2-icon*/
     .menu-bar2 .menu-bar2-icon {
         display: inline-flex;
-        margin-right: 30px;
+        margin-right: 10px;
+        margin-left: 10px;
         font-size: var(--menu-icon-font-size);
         color: var(--gray-6, #F2F2F2);
         cursor: pointer;

@@ -44,14 +44,24 @@ function setCisliderVisibleImage(cisliderDiv){
         });
 }
 
+/**
+ * Changes to next automatically.
+ */
+function autoChange(cisliderDiv){
+    console.log("autochange");
+    if (cisliderDiv.circles)
+        cisliderDiv.circles[cisliderDiv.position].classList.remove("active");
 
+    cisliderDiv.position = (cisliderDiv.position + 1) % cisliderDiv.totalItems;
+    setCisliderVisibleImage(cisliderDiv);
+}
 
 cisliders.forEach((cisliderDiv) => {
     cisliderDiv.position = 0;
     cisliderDiv.totalItems =  cisliderDiv.querySelectorAll(".cislider>ul>li").length;
     cisliderDiv.nextBtn = cisliderDiv.querySelector(".cislider>.cislider-next");
     cisliderDiv.prevBtn = cisliderDiv.querySelector(".cislider>.cislider-prev");
-    const divNavigation = cisliderDiv.querySelector(".cislider>.cislider-navigation");
+    const divNavigation = cisliderDiv.querySelector(".cislider>.cislider-navigation, .cislider>.cislider-navigation-outer");
     if (divNavigation)
         cisliderDiv.cisliderCirclers = populateNavigation(divNavigation, cisliderDiv.totalItems, cisliderDiv);
 
@@ -75,4 +85,7 @@ cisliders.forEach((cisliderDiv) => {
             setCisliderVisibleImage(cisliderDiv);
         });
     }
+    if (cisliderDiv.classList.contains("clislider-auto"))
+        setInterval(autoChange, 5000, cisliderDiv);
+    
 });

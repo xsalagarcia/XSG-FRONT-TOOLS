@@ -1,6 +1,8 @@
 /*
 Example of use:
 <span class="bs-icons-x-lg"></span>
+Where to search:
+https://icons.getbootstrap.com/
 */
 
 @font-face {
@@ -25,3 +27,4 @@ Example of use:
 
 .bs-icons-list::before {content: "\f479";}/*text, type, justify, alignment, menu, hamburger*/
 .bs-icons-x-lg::before {content: "\f659";}/*x, delete, remove, reset, clear, cancel, close, exit*/
+.bs-icons-chevron-down::before{content: "\F282";} /*down, chevron-down, chevron*/

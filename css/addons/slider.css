@@ -6,6 +6,8 @@
 
 /*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
 /*
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +30,8 @@
             </li>
         </ul>
     </div>
+</body>
+</html>
 
 */
 

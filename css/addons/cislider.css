@@ -1,4 +1,4 @@
-/** Slider with controls.**/
+/** Slider with controls (optionals). Optionally timered**/
 /* Depends on:
  * js/cislider.js
  * 
@@ -6,6 +6,8 @@
 
 /*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
 /*
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +20,7 @@
     
     <div style="width: 200px">
         
-        <div class="cislider">
+        <div class="cislider cislider-auto">        <!--Use cislider-auto (optional) to set autoslide-->
             <span class="cislider-prev"></span>     <!--Optional-->
             <ul>
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
@@ -29,11 +31,12 @@
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
             </ul>
             <span class="cislider-next"></span>      <!--Optional-->
-            <div class="cislider-navigation"></div>  <!--Optional-->
+            <div class="cislider-navigation"></div>  <!--Optional. Could be cislider-navigation-outer and the index will appear under the image-->
         </div>
 
     </div>
 </body>
+</html>
 
 */
 
@@ -71,8 +74,9 @@
 
 }
 .cislider>.cislider-prev::before, .cislider>.cislider-next::before{
-    content: '<';
-    color: lightgray;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px  black, -1px -1px 4px black;
     padding: 0.3rem;
     font-size: 2rem;
     position: absolute;
@@ -80,14 +84,16 @@
     z-index: 1;
     display: inline-block;
     cursor: pointer;
-    background-color: #00000099;
-    border-radius: 30%;
+    /*background-color: #00000099;
+    border-radius: 30%;*/
 }
-.cislider>.cislider-next::before{
+.cislider:hover>.cislider-next::before{
     content: '>';
+    font-weight: bold;
     right: 5px;
 }
-.cislider>.cislider-prev::before{
+.cislider:hover>.cislider-prev::before{
+    content: '<';
     left: 5px;
 }
 
@@ -113,6 +119,10 @@
     position: absolute;
     z-index: 1;
     bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+.cislider-navigation-outer {
     width: 100%;
     text-align: center;
 }

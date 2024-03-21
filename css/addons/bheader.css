@@ -14,16 +14,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="template/css/reset.css">
-    <link rel="stylesheet" href="template/css/colors/my-color-schema.css">
-    <link rel="stylesheet" href="template/css/fonts.css">
-    <link rel="stylesheet" href="template/css/base.css">
-    <link rel="stylesheet" href="template/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="template/css/grid.css">
-    <link rel="stylesheet" href="template/css/style.css">
-    <link rel="stylesheet" href="template/css/addons/bheader.css"> <!--All here-->
-    <link rel="stylesheet" href="template/css/custom.css">
-    <script src="template/js/addons/bheader.js" defer></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/colors/my-color-schema.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addons/bheader.css"> <!--All here-->
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/addons/bheader.js" defer></script>
 </head>
 
 <body>
