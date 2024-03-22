@@ -5,10 +5,12 @@
 /**Represents all the cislider */
 const cisliders = document.querySelectorAll(".cislider");
 
+
 /**
  * Populates the cislider-navigation with nav cislider-circles.
  * @param {Element} div The div with cislider-navigation class.
  * @param {Number} totalItems The number of items.
+ * @param {Element} csliderDiv The cslider-navigation Div.
  */
 function populateNavigation(div, totalItems, cisliderDiv) {
     cisliderDiv.circles = []
@@ -29,8 +31,14 @@ function populateNavigation(div, totalItems, cisliderDiv) {
 /**
  * Changes the image of the cislider.
  * @param {Element} cisliderDiv The cislider.
+ * @param {Boolean} stopInterval pass false if don't want to stop automatic change. Ideally, when the change is automatic.
  */
-function setCisliderVisibleImage(cisliderDiv){
+function setCisliderVisibleImage(cisliderDiv, stopInterval=true){
+    if (cisliderDiv.intervalId && stopInterval){ 
+        clearInterval(cisliderDiv.intervalId);
+        cisliderDiv.intervalId = null;
+    }
+
     if (cisliderDiv.nextBtn)
         cisliderDiv.nextBtn.style.visibility = (cisliderDiv.position >= cisliderDiv.totalItems -1)? 'hidden' : 'visible';
     if (cisliderDiv.prevBtn)
@@ -46,6 +54,7 @@ function setCisliderVisibleImage(cisliderDiv){
 
 /**
  * Changes to next automatically.
+ * @param {Element} csliderDiv The cslider
  */
 function autoChange(cisliderDiv){
     console.log("autochange");
@@ -53,10 +62,15 @@ function autoChange(cisliderDiv){
         cisliderDiv.circles[cisliderDiv.position].classList.remove("active");
 
     cisliderDiv.position = (cisliderDiv.position + 1) % cisliderDiv.totalItems;
-    setCisliderVisibleImage(cisliderDiv);
+    setCisliderVisibleImage(cisliderDiv, false);
 }
 
+
+
 cisliders.forEach((cisliderDiv) => {
+    /*added atr for csliderDiv:
+     *position, totalItems, nextBtn, prevBtn, circles, intervalId
+    */
     cisliderDiv.position = 0;
     cisliderDiv.totalItems =  cisliderDiv.querySelectorAll(".cislider>ul>li").length;
     cisliderDiv.nextBtn = cisliderDiv.querySelector(".cislider>.cislider-next");
@@ -85,7 +99,8 @@ cisliders.forEach((cisliderDiv) => {
             setCisliderVisibleImage(cisliderDiv);
         });
     }
+
+    /*intervalId attribute is used to stop autochanges when user click prev, next or index*/
     if (cisliderDiv.classList.contains("clislider-auto"))
-        setInterval(autoChange, 5000, cisliderDiv);
-    
+        cisliderDiv.intervalId = setInterval(autoChange, 5000, cisliderDiv);
 });

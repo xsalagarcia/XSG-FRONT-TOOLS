@@ -1,6 +1,6 @@
 /** Just items.**/
 /* Depends on:
- *
+ * bootstrap-icons.css
  */
 
 /*Use this to test and build it*/
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/colors/my-color-schema.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">           <!-- depends!! -->
     <link rel="stylesheet" href="css/addons/list-options.css">       <!-- !!! -->
     <style>
 

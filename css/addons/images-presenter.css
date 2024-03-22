@@ -1,0 +1,55 @@
+/** Responsive menu bar with subitems (2 levels).**/
+/* Depends on:
+ * js/images-presenter.js
+ * 
+ */
+
+/*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
+/*
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/addons/images-presenter.css"> <!-- !!! -->
+    <script src="js/addons/images-presenter.js" defer></script> <!-- !!! -->
+    
+</head>
+
+<body>
+    <div >
+        <div class="images-presenter"> <!--Set the size (width) on this div!!!-->
+            <img src="https://picsum.photos/600/400?rand=1" alt="">
+            <img src="https://picsum.photos/600/400?rand=2" alt="">
+            <img src="https://picsum.photos/600/400?rand=3" alt="">
+            <img src="https://picsum.photos/600/400?rand=4" alt="">
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+*/
+
+.images-presenter {
+    position: relative;
+}
+.images-presenter img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;            
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+.images-presenter img:first-child {
+    position: relative;
+}
+.images-presenter img.active {
+    opacity: 1;
+    transition: opacity 2s ease;
+}
