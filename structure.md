@@ -10,7 +10,8 @@ css/
 │   ├── bmenu.css
 │   ├── cslider.css
 │   ├── llinks.css
-│   └── slider.css
+│   ├── slider.css
+│   └── ...
 ├── fonts.css
 ├── reset.css
 ├── base.css
@@ -25,7 +26,8 @@ js/
     ├── bheader.js
     ├── bmenu.js
     ├── cslider.js
-    └── slider.js
+    ├── slider.js
+    └── ...
 
 fonts/
 │
@@ -80,7 +82,8 @@ It contains some extra functionalities. Some of them depends on a javascript fil
 ## js folder
 This folder contains javascript files.
 ### js/addons folder
-This folder contains javascript files related with [css/addons](#cssaddons-folder) folder
+This folder contains javascript files related with [css/addons](#cssaddons-folder) folder.
+For addons documentation read [css/addons/addons.md](css/addons/addons.md).
 
 
 ## HTML example

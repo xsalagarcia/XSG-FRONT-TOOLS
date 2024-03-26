@@ -1,0 +1,99 @@
+/** Slider with controls.
+ *    It's better to use cislider.css + cislider.js (it have an optional index and better code organization)
+ */
+ /** Author: xsg */
+/* Depends on:
+ * js/cslider.js
+ * 
+ */
+
+/*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
+/*
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/addons/figure-overlapping-figcaption.css">       <!-- !!! -->
+    <title>Document</title>
+
+</head>
+
+<body>
+    <figure class="figure-overlapping-figcaption">
+        <img src="https://picsum.photos/600/500?rand=1" alt="">
+        <div class="figure-overlapping-figcaption-flange">+</div>  <!--OPTIONAL-->
+        <figcaption>
+            <h5>just a little header</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, explicabo! Hic distinctio quod
+                quidem dolores maiores, veniam obcaecati omnis odio optio, repudiandae, esse earum mollitia sequi
+                voluptate dignissimos fuga animi quaerat aut ipsa illum magni repellat iste explicabo? Hic, iste.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, explicabo! Hic distinctio quod
+
+        </figcaption>
+    </figure>
+</body>
+
+</html>
+
+*/
+
+.figure-overlapping-figcaption {
+    position: relative;
+}
+.figure-overlapping-figcaption img {
+    width: 100%;
+    display: block;
+}
+.figure-overlapping-figcaption figcaption {
+    position: absolute;
+    /*height: 100%;*//*Uncomment this if wants the figcaption in the whole image*/
+    max-height: 100%;
+    text-align: center;
+    bottom: 0;
+    background-color: #00000088;
+    color: #F2F2F2;
+    /*Uncomment scroll if needed.
+    overflow-y: scroll;
+    scrollbar-width: thin;*/
+    transform: scale(1, 0);
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-delay: 40ms;
+    transform-origin: bottom;
+}
+.figure-overlapping-figcaption:hover figcaption {
+    transform: scale(1, 1);
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-delay: 40ms;
+    transform-origin: bottom;
+}
+
+.figure-overlapping-figcaption-flange {
+    position: absolute;
+    height: 20px;
+    width: 50px;
+    background-color: #00000088;
+    color: #F2F2F2;
+    font-weight: bold;
+    text-align: center;
+    bottom: 0px;
+    left: calc(50% - 25px);
+    border-radius: 50px 50px 0px 0px;
+    transition-property: bottom, transform;
+    transition-duration: 400ms;
+    transition-delay: 40ms;
+    transform-origin: bottom;
+}
+
+.figure-overlapping-figcaption:hover .figure-overlapping-figcaption-flange {
+    transform: scale(1, 0);
+    bottom: 100%;
+    transition-property: transform, bottom;
+    transition-duration: 400ms;
+    transition-delay: 40ms;
+    transform-origin: bottom;
+}

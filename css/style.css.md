@@ -59,5 +59,7 @@ The defined classes are:
     - *color-pink*
     - *color-blue*
     - *color-green*
+- FX - Animations
+    - *scale-on-focus-n* When an element is focuses, will be scaled at n. n can be 1075; 1100; 1125; 1150. (1075 is 1.075x1.075). 
 - Other
     - *noscript*: use ```<noscript class="noscript"></noscript>``` at the start of the body and the magic will be done.

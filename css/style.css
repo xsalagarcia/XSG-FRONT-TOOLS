@@ -15,7 +15,8 @@ INDEX
     5-  Blocks alignments
     6-  Backgrounds
     7-  Colors
-    8-  Other resources
+    8-  FX - Animations
+    9-  Other resources
 /********************** TEXT *************************/
 .text-align-justify {text-align: justify;}
 .text-align-center {text-align: center;}
@@ -212,6 +213,29 @@ INDEX
 .color-pink {color: pink;}
 .color-blue {color: blue;}
 .color-green {color: green;}
+
+
+/******************* FX - Animations *****************/
+
+/* scale-on-focus-n class*/
+.scale-on-focus-1075:hover {transform: scale(1.075, 1.075);}
+.scale-on-focus-1100:hover {transform: scale(1.1, 1.1);}
+.scale-on-focus-1125:hover {transform: scale(1.125, 1.125);}
+.scale-on-focus-1150:hover {transform: scale(1.15, 1.15);}
+[class*=" scale-on-focus-"], [class^="scale-on-focus-"] { 
+    transform: scale(1, 1);
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-delay: 40ms;
+    transform-origin: center;
+}
+[class*=" scale-on-focus-"]:hover, [class^="scale-on-focus-"]:hover { 
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-delay: 40ms;
+    transform-origin: center;
+    z-index: 1;
+}
 
 
 /******************* OTHER RESOURCES *****************/

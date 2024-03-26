@@ -1,0 +1,97 @@
+/** Expandable list, to be used for example in a list of FAQs**/
+/** Author: xsg */
+/* Depends on:
+ * js/expandable-list.js
+ * css/bootstrap-icons.css
+ */
+/*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
+/*
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/colors/my-color-schema.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css"> <!--Necessary-->
+    <link rel="stylesheet" href="css/addons/expandable-list.css"> <!-- !!! -->
+    <script src="js/addons/expandable-list.js" defer></script> <!-- !!! -->
+</head>
+
+<body>
+
+    <h1>FAQs</h1>
+    <ul class="expandable-list">
+        <li>this could be a question
+            <div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi perspiciatis, fugit possimus
+                    adipisci eaque et eos delectus beatae ab tempora quidem maxime ad dolore aut itaque at provident
+                    voluptatum blanditiis?</p>
+            </div>
+        </li>
+        <li>this could be a question
+            <div>
+                <p>Nesciunt sed est dolorum ipsum culpa fuga fugit iure doloribus necessitatibus vel iste quam deserunt
+                    odio, molestias dolor ducimus libero ut saepe repudiandae dolores. Adipisci neque sunt nulla ratione
+                    minus!</p>
+            </div>
+        </li>
+        <li>this could be a question
+            <div>
+                <p>Odit, quibusdam! Cumque sequi tenetur praesentium necessitatibus ratione quasi eos laboriosam? Non,
+                    quam quidem necessitatibus cupiditate quis quo asperiores cumque pariatur voluptatibus? Dicta
+                    facilis eum quaerat aliquam, ea numquam cumque.</p>
+            </div>
+        </li>
+        <li>this could be a question
+            <div>
+                <p>Soluta, sint. Alias error magni earum doloremque accusantium, corrupti eius velit incidunt a quaerat
+                    harum esse, libero eum reprehenderit! Voluptate, nam! Obcaecati eaque minima cupiditate mollitia,
+                    nemo quia. Quae, laudantium.</p>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>
+*/
+
+.expandable-list{
+    /*Variables*/
+    --non-active-background-color: var(--gray-1, #F2F2F2);
+    --active-background-color: var(--color-2, #A5A5A5);
+
+    list-style: none;
+}
+.expandable-list>li {
+    position: relative;
+    padding-right: 2rem;
+    background-color: var(--non-active-background-color);
+    transition: background-color 400ms ease-in-out 30ms;
+    cursor:pointer;
+    font-weight: bold;
+}
+.expandable-list>li::before {
+    position: absolute;
+    right: 0;
+    font-family: bootstrap-icons;   /*css/bootstrap-icons.css dependency*/
+    content:"\F282";
+}
+.expandable-list>li.active::before{
+    content:"\F286";
+}
+.expandable-list>li:hover, .expandable-list>li.active{
+    background-color: var(--active-background-color);
+    transition: background-color 400ms ease-in-out 30ms;
+}
+
+.expandable-list>li>div{
+    font-weight:initial;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 600ms ease;
+}

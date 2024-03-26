@@ -1,3 +1,5 @@
+const default_time = 4000
+
 function changeImage(imagePresenter){
     const imgs = imagePresenter.querySelectorAll("img");
     imgs[imagePresenter.index].classList.toggle("active");
@@ -12,7 +14,6 @@ document.querySelectorAll(".images-presenter").forEach((imagePresenter) => {
         const firstImage = imagePresenter.querySelector("img");
         if (firstImage)
             firstImage.classList.toggle("active");
-        
     }
     
     imagePresenter.intervalId = setInterval(changeImage, 5000, imagePresenter);
@@ -21,7 +22,7 @@ document.querySelectorAll(".images-presenter").forEach((imagePresenter) => {
     imagePresenter.addEventListener("click", () => {
         clearInterval(imagePresenter.intervalId);
         changeImage(imagePresenter);
-        imagePresenter.intervalId = setInterval(changeImage, 4000, imagePresenter);
+        imagePresenter.intervalId = setInterval(changeImage, default_time, imagePresenter);
     });
 
 });
