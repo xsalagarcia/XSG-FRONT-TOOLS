@@ -14,6 +14,9 @@ It was a previous version of [bheader](#bheader).
 ## cislider
 The evolution of [cslider](#cslider) and [slider](#slider). More flexible and customizable code and flexible code. Autoslide option, index option, go forward and back option. If autoslide, when the user click some control, autoslide will stop.
 
+## contdown
+A contdown logic. No css needed. Only a .js file.
+
 ## cslider
 A slider (images or other blocks) with forward and back options. A more evolutioned version is [cislider](#cislider). If don't have some reason use [cislider](#cislider).
 
