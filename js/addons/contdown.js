@@ -33,7 +33,7 @@ document.querySelectorAll(".contdown").forEach((contdown) => {
     contdown.parsedReferenceDateTime = new Date(contdown.getAttribute('referenceDateTime'));
     if (contdown.parsedReferenceDateTime != 'Invalid Date') {
         contdown.originalInnerHTML = contdown.innerHTML;
-        setInterval(updateContdown, 1000, contdown);
+        contdown.updateIntervalId = setInterval(updateContdown, 1000, contdown);
         updateContdown(contdown);
     } else {
         console.error(`Invalid date at ${contdown}`);
@@ -57,5 +57,6 @@ function updateContdown(contdown) {
         contdown.querySelector(".contdown-minutes").textContent = 0;
         contdown.querySelector(".contdown-hours").textContent = 0;
         contdown.querySelector(".contdown-days").textContent = 0;
+        clearInterval(contdown.updateIntervalId);
     }
 }

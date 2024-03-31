@@ -2,8 +2,6 @@
  * This is linked to cislider.css.
  */
 
-/**Represents all the cislider */
-const cisliders = document.querySelectorAll(".cislider");
 
 
 /**
@@ -67,7 +65,7 @@ function autoChange(cisliderDiv){
 
 
 
-cisliders.forEach((cisliderDiv) => {
+document.querySelectorAll(".cislider").forEach((cisliderDiv) => {
     /*added atr for csliderDiv:
      *position, totalItems, nextBtn, prevBtn, circles, intervalId
     */
@@ -101,6 +99,6 @@ cisliders.forEach((cisliderDiv) => {
     }
 
     /*intervalId attribute is used to stop autochanges when user click prev, next or index*/
-    if (cisliderDiv.classList.contains("clislider-auto"))
+    if (cisliderDiv.classList.contains("cislider-auto"))
         cisliderDiv.intervalId = setInterval(autoChange, 5000, cisliderDiv);
 });

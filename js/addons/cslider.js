@@ -2,8 +2,7 @@
  * This is linked to cslider.css.
  */
 
-const csliders = document.querySelectorAll(".cslider");
-csliders.forEach((csliderDiv) => {
+document.querySelectorAll(".cslider").forEach((csliderDiv) => {
     csliderDiv.position = 0;
     csliderDiv.totalItems =  csliderDiv.querySelectorAll(".cslider>ul>li").length;
     csliderDiv.nextBtn = csliderDiv.querySelector(".cslider>.next");
