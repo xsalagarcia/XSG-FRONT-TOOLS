@@ -230,10 +230,6 @@ INDEX
     transform-origin: center;
 }
 [class*=" scale-on-focus-"]:hover, [class^="scale-on-focus-"]:hover { 
-    transition-property: transform;
-    transition-duration: 200ms;
-    transition-delay: 40ms;
-    transform-origin: center;
     z-index: 1;
 }
 

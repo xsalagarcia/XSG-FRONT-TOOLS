@@ -20,6 +20,9 @@ A contdown logic. No css needed. Only a .js file.
 ## cslider
 A slider (images or other blocks) with forward and back options. A more evolutioned version is [cislider](#cislider). If don't have some reason use [cislider](#cislider).
 
+## clock
+Analogic clock, just for curiosity. Playing with rotation transform.
+
 ## expandable-list
 A list with items. The item is expeted to contains some text and a div with more text or information. The div is not shown until the user clicks the item. This could be useful in a FAQs list, for example.
 
