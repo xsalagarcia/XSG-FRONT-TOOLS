@@ -45,6 +45,7 @@
     --color-2: var(--gray-1, #F2F2F2);
     --background-color:var(--contrast-color-1, #F2F2F2);
     
+    width: fit-content;
 }
 .list-options>li, .list-options>li>span{
     position: relative;
