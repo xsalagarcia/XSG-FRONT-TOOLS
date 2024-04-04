@@ -24,7 +24,7 @@ https://icons.getbootstrap.com/
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+/*All icon class have to start with bs-icons*/
 .bs-icons-list::before {content: "\f479";}/*text, type, justify, alignment, menu, hamburger*/
 .bs-icons-x-lg::before {content: "\f659";}/*x, delete, remove, reset, clear, cancel, close, exit*/
 .bs-icons-chevron-down::before{content: "\F282";} /*down, chevron-down, chevron*/
@@ -34,3 +34,4 @@ https://icons.getbootstrap.com/
 .bs-icons-type-h1::before{content: "\F5F1";} /*text, type, heading, h1*/
 .bs-icons-type-h2::before{content: "\F5F2";} /*text, type, heading, h2*/
 .bs-icons-type-h3::before{content: "\F5F3";} /*text, type, heading, h3*/
+.bs-icons-window::before{content: "\F620";} /*app, application*/

@@ -74,8 +74,4 @@
 }
 .list-options>li:hover>ul {
     transform: scale(1, 1);
-    transition-property: transform;
-    transition-duration: 200ms;
-    transition-delay: 40ms;
-    transform-origin: top center;
 }

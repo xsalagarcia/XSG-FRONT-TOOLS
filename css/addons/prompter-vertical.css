@@ -1,0 +1,60 @@
+/** Prompter vertical. Shows the div inside from bottom to top in a infinite animation.
+ * When hover, the animation is paused.
+**/
+/** Author: xsg */
+/* Depends on:
+ */
+/*Use this to test and build it */
+/*
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/addons/prompter-vertical.css"> <!--!!!-->
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="prompter-vertical">
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatibus laboriosam tempora numquam
+            quisquam tenetur debitis omnis, nihil at. Nulla eaque inventore beatae qui minus expedita maxime aut
+            voluptas molestias?</div>
+    </div>
+</body>
+
+</html>
+*/
+
+.prompter-vertical {
+    --width: 300px;
+    --height: 300px;
+    --animation-duration: 10s;
+    border: solid white;
+    box-shadow: 0 0 1px 1px lightgrey;
+    width: var(--width);
+    height: var(--height);
+    overflow: hidden;
+}
+
+.prompter-vertical div {
+    animation: prompter-vertical infinite;
+    animation-duration: var(--animation-duration);
+    animation-timing-function: linear;
+    width: 100%;
+}
+
+.prompter-vertical:hover div {
+    animation-play-state: paused;
+}
+
+
+@keyframes prompter-vertical {
+    from {
+        transform: translateY(var(--height));
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}

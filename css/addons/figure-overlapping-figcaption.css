@@ -66,10 +66,6 @@
 }
 .figure-overlapping-figcaption:hover figcaption {
     transform: scale(1, 1);
-    transition-property: transform;
-    transition-duration: 400ms;
-    transition-delay: 40ms;
-    transform-origin: bottom;
 }
 
 .figure-overlapping-figcaption-flange {
@@ -92,8 +88,4 @@
 .figure-overlapping-figcaption:hover .figure-overlapping-figcaption-flange {
     transform: scale(1, 0);
     bottom: 100%;
-    transition-property: transform, bottom;
-    transition-duration: 400ms;
-    transition-delay: 40ms;
-    transform-origin: bottom;
 }

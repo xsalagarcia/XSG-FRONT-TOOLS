@@ -86,7 +86,6 @@
 }
 .expandable-list>li:hover, .expandable-list>li.active{
     background-color: var(--active-background-color);
-    transition: background-color 400ms ease-in-out 30ms;
 }
 
 .expandable-list>li>div{

@@ -5,7 +5,7 @@ document.querySelectorAll(".expandable-list>li").forEach((expandableListItem)=>{
     
         expandableListItem.parentElement.querySelectorAll(".active").forEach((active)=>{
             active.classList.remove("active");
-            active.children[0].style.maxHeight = "0px";;
+            active.children[0].style.maxHeight = "0px";
         });
         
         if (!wasActive) {

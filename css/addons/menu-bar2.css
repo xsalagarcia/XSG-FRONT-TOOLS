@@ -172,7 +172,6 @@
     .menu-bar2>ul>li:hover>ul {
         visibility: visible;
         max-height: 200px;
-        transition: max-height 0.5s ease;
     }
 
 
@@ -231,10 +230,6 @@
     /*.menu-bar2>ul>li:hover>ul, When the parent of a secondary list is hover (show secondary list)*/
     .menu-bar2>ul>li:hover>ul{
         transform: scale(1, 1);
-        transition-property: transform;
-        transition-duration: 200ms;
-        transition-delay: 40ms;
-        transform-origin: top center;
     }
 
 

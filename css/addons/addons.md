@@ -41,6 +41,12 @@ A simple widget of lateral links that should show icons.
 ## menu-bar2
 A responsive menu bar with two levels (second level optional).
 
+## prompter-horizontal
+Prompter horizontal. Shows the div inside from right to left in a infinite animation. When hover, the animation is paused.
+
+## prompter-vertical
+Prompter vertical. Shows the div inside from bottom to top in a infinite animation. When hover, the animation is paused.
+
 ## slider
 A very simple image (or other blocks) slider. No control options. Just automatic changes. If controls are needed, use [cislider](#cislider).
 
