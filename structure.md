@@ -78,6 +78,7 @@ Is just an empty css file. Here will be included all customizations for the pres
 
 ### css/addons folder
 It contains some extra functionalities. Some of them depends on a javascript file or other css file. It is commented in the same file, on the first lines.
+For addons documentation read [css/addons/addons.md](css/addons/addons.md).
 
 ## js folder
 This folder contains javascript files.
