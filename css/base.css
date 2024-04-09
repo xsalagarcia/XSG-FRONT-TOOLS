@@ -122,7 +122,7 @@ textarea {
     width: 100%;
     max-width: 400px;
     min-height: 10rem;
-    resize:vertical; /*permet redimensionar verticalment*/
+    resize:vertical; /*allows vertical redimension*/
     background-color: transparent;
 
     border-bottom: 1px solid black;
@@ -131,6 +131,21 @@ textarea {
     border-right: 1px dotted var(--gray-3);
     outline: none;
 }
+
+
+
+input[type="text"]:hover, input[type="email"]:hover, textarea:hover{
+    background-color: var(--black-transparent-2);
+}
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus{
+    background-color: var(--black-transparent-5);
+    color: var(--gray-1);
+}
+input[type="text"]:focus::placeholder, input[type="email"]:focus::placeholder, textarea:focus::placeholder{
+    color: var(--gray-3); /*to change placeholder color*/
+}
+
+
 
 input[type="submit"], input[type="reset"] {
     min-width: 100px;
@@ -142,9 +157,18 @@ input[type="submit"], input[type="reset"] {
     text-decoration: none;
     color: var(--gray-1);
 }
-input[type="submit"]:active input[type="reset"]:active {
+input[type="submit"]:hover, input[type="reset"]:hover {
+    border: solid 1px var(--gray-3);
+    color: var(--gray-5);
+    background-color: var(--white-transparent-5);
+}
+input[type="submit"]:active, input[type="reset"]:active {
     box-shadow: 0 0 4px 1px var(--gray-5);
 }
-input[type="submit"]:hover input[type="reset"]:hover {
-    background-color: var(--gray-4);
+input[type="text"], input[type="email"]{
+    padding: 0.25rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
 }
