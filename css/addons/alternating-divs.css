@@ -1,0 +1,57 @@
+/** Alternating divs. Alternating divs with a simple animation. You can set the alternating time with alternating-divs-time attribute.**/
+/** Author: xsg */
+/* Depends on:
+ * js/addons/alternating-divs.js
+ */
+/*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/addons/alternating-divs.css">  <!-- !!! -->
+    <script src="js/addons/alternating-divs.js" defer></script>     <!-- !!! -->
+
+</head>
+<body>
+    <div class="alternating-divs" alternating-divs-time="4000"> <!--Use alternating-divs-time to set time interval in ms-->
+        <div><img src="https://picsum.photos/600/400?rand=3" alt=""></div>
+        <div><img src="https://picsum.photos/600/400?rand=4" alt=""></div>
+        <div><img src="https://picsum.photos/600/400?rand=5" alt=""></div>
+        <div><img src="https://picsum.photos/600/400?rand=6" alt=""></div>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ullam ex, inventore sequi corporis commodi veniam delectus error asperiores adipisci consectetur atque fuga, porro alias dignissimos vel blanditiis nulla dolorem.</p>
+    <div class="alternating-divs">
+        <div><img src="https://picsum.photos/600/400?rand=1" alt=""></div>
+        <div><img src="https://picsum.photos/600/400?rand=2" alt=""></div>
+        <div><img src="https://picsum.photos/600/400?rand=3" alt=""></div>
+        <div>This could be a text</div>
+    </div>
+</body>
+</html>
+*/
+
+
+.alternating-divs {
+    --animation-time: 0.3s;
+    position: relative;
+    width: 200px;
+    height: 150px;
+}
+.alternating-divs>div {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: rotateX(90deg);
+    transition: transform var(--animation-time);
+}
+.alternating-divs>div>img{
+    width: 100%;
+}
+.alternating-divs>div.active {
+    transform: rotateX(0deg);
+    transition: transform var(--animation-time) var(--animation-time);
+}

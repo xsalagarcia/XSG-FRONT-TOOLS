@@ -5,6 +5,9 @@ Each css file contains an inital block of comments with a little example for sta
 
 In general, a css file on `css/addons` represents an addon. And if this file have a javascript code associated, the js file will be on `js/addons` with the same name.
 
+## alternating-divs
+Alternating divs with a simple animation. You can set the alternating time with alternating-divs-time attribute.
+
 ## bheader
 A header with a simple responsive menu. Horizontal or hamburguer. Could be considered an evoultion of [bmenu](#bmenu) (Prepared to show a logo...). But another kind of responsive menu is [menu-bar2](#menu-bar2), that have 2 levels, and some more options and more flexible code.
 
