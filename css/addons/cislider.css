@@ -5,6 +5,16 @@
  * 
  */
 
+ /*
+  * Options:
+  * with attribute cisliderOptions
+  * - prev: cislider will have a previous control.
+  * - next: cislider will have a next control.
+  * - index: cislider will have a index control.
+  * - intervalN: To set the interval option in ms. If only interval (without number), N will be 5000 implicitly.
+  *   If interval is not set, autochange won't work.
+  */
+
 /*Use this to test and build it (you can have several slides blocks at the same document, with different images): */
 /*
 <!DOCTYPE html>
@@ -20,9 +30,7 @@
 <body>
     
     <div style="width: 200px">
-        
-        <div class="cislider cislider-auto">        <!--Use cislider-auto (optional) to set autoslide-->
-            <span class="cislider-prev"></span>     <!--Optional-->
+        <div class="cislider cislider-auto" cisliderOptions="prev next index interval5000"> <!-- cisliderOptions is where you have to put the options.-->
             <ul>
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
@@ -31,10 +39,7 @@
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
                 <li><img src="https://fakeimg.pl/300x300" alt=""></li>
             </ul>
-            <span class="cislider-next"></span>      <!--Optional-->
-            <div class="cislider-navigation"></div>  <!--Optional. Could be cislider-navigation-outer and the index will appear under the image-->
         </div>
-
     </div>
 </body>
 </html>
