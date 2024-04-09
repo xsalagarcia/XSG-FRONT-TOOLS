@@ -1,0 +1,57 @@
+/** alternating-figure. Alternates img and figcaption of a figure in a animated way.
+**/
+/** Author: xsg */
+/* Depends on:
+ */
+/*Use this to test and build it */
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/addons/alternating-figure.css">  <!-- !!! -->
+    <title>Document</title>
+</head>
+<body>
+    <figure class="alternating-figure" style="width: 300px">
+        <img src="https://picsum.photos/600/400?rand=3" alt="">
+        <figcaption>The text of the figcaption</figcaption>
+    </figure>
+</body>
+</html>
+*/
+
+
+.alternating-figure {
+    --transition-time: 0.3s;
+    position: relative;
+}
+.alternating-figure img{
+    display: block;
+    width: 100%;
+    transform: scale(1, 1);
+    transition: transform var(--transition-time) var(--transition-time);
+}
+.alternating-figure:hover img {
+    transform: scale(1,0);
+    transition: transform var(--transition-time);
+}
+.alternating-figure figcaption{
+    position: absolute;
+    top: 0;
+    background-color: #333;
+    color: #ccc;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+    z-index: -1;
+    box-sizing: border-box;
+    transform: scale(1, 0);
+    transition: transform var(--transition-time);
+}
+.alternating-figure:hover figcaption {
+    transform: scale(1, 1);
+    transition: transform var(--transition-time) var(--transition-time);
+}

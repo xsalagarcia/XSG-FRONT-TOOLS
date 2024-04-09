@@ -8,6 +8,9 @@ In general, a css file on `css/addons` represents an addon. And if this file hav
 ## alternating-divs
 Alternating divs with a simple animation. You can set the alternating time with alternating-divs-time attribute.
 
+## alternating-figure
+Alternates img and figcaption of a figure in a animated way.
+
 ## bheader
 A header with a simple responsive menu. Horizontal or hamburguer. Could be considered an evoultion of [bmenu](#bmenu) (Prepared to show a logo...). But another kind of responsive menu is [menu-bar2](#menu-bar2), that have 2 levels, and some more options and more flexible code.
 
