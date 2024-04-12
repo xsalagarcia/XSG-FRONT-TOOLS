@@ -117,7 +117,7 @@ td, th{
     border: 1px solid var(--gray-6);
 }
 
-/*Forms*/
+/*******Forms*********/
 textarea {
     width: 100%;
     max-width: 400px;
@@ -132,22 +132,52 @@ textarea {
     outline: none;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="password"],
+input[type="number"]
+{
+    padding: 0.25rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
 
-
-input[type="text"]:hover, input[type="email"]:hover, textarea:hover{
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="url"]:hover,
+input[type="tel"]:hover,
+input[type="password"]:hover,
+input[type="number"]:hover,
+textarea:hover{
     background-color: var(--black-transparent-2);
 }
-input[type="text"]:focus, input[type="email"]:focus, textarea:focus{
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus{
     background-color: var(--black-transparent-5);
     color: var(--gray-1);
 }
-input[type="text"]:focus::placeholder, input[type="email"]:focus::placeholder, textarea:focus::placeholder{
+input[type="text"]:focus::placeholder,
+input[type="email"]:focus::placeholder,
+input[type="url"]:focus::placeholder,
+input[type="tel"]:focus::placeholder,
+input[type="password"]:focus::placeholder,
+input[type="number"]:focus::placeholder,
+textarea:focus::placeholder{
     color: var(--gray-3); /*to change placeholder color*/
 }
 
 
-
-input[type="submit"], input[type="reset"] {
+input[type="submit"],
+input[type="reset"] {
     min-width: 100px;
     padding: 0.5rem 1rem;
     border: solid 1px var(--gray-3);
@@ -157,18 +187,43 @@ input[type="submit"], input[type="reset"] {
     text-decoration: none;
     color: var(--gray-1);
 }
-input[type="submit"]:hover, input[type="reset"]:hover {
+input[type="submit"]:hover,
+input[type="reset"]:hover {
     border: solid 1px var(--gray-3);
     color: var(--gray-5);
     background-color: var(--white-transparent-5);
 }
-input[type="submit"]:active, input[type="reset"]:active {
+input[type="submit"]:active,
+input[type="reset"]:active {
     box-shadow: 0 0 4px 1px var(--gray-5);
 }
-input[type="text"], input[type="email"]{
-    padding: 0.25rem;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
+
+
+/*Validation behavior block*/
+input[type="text"]:focus:valid,
+input[type="email"]:focus:valid,
+input[type="url"]:focus:valid,
+input[type="tel"]:focus:valid,
+input[type="password"]:focus:valid,
+input[type="number"]:focus:valid,
+textarea:focus:valid{
+    border-color: darkgreen;
+    border-width: 2px;
+    /*background-image: url("../media/img/ok.svg");
+    background-repeat:no-repeat;
+    background-position: 100%;*/
 }
+input[type="text"]:focus:invalid,
+input[type="email"]:focus:invalid,
+input[type="url"]:focus:invalid,
+input[type="tel"]:focus:invalid,
+input[type="password"]:focus:invalid,
+input[type="number"]:focus:invalid,
+textarea:focus:invalid{
+    border-color: orangered;
+    border-width: 2px;
+    /*background-image: url("../media/img/ko.svg");
+    background-repeat:no-repeat;
+    background-position: 100%;*/
+}
+
