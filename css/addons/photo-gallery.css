@@ -1,0 +1,295 @@
+/** Photo-gallery. Shows little images, and when image is clicked, a big image will be shown. Navigation with the big images is allowed.
+ * The source of the big image has to be referenced at the phot-gallery-big-src attribute. Each
+ * figure has two sources, the img source and the photo-gallery-big-screen-src.
+**/
+/** Author: xsg */
+/* Depends on:
+ * js/photo-gallery.js
+ */
+
+/*Use this to test and build it:*/
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/addons/photo-gallery.css"> <!-- !!! -->
+    <script src="js/addons/photo-gallery.js" defer></script> <!-- !!! -->
+
+</head>
+<body>
+    <div style="width: 80vw; margin: auto;">
+        <div class="photo-gallery">
+            <figure class="alternating-figure" photo-gallery-big-src="https://picsum.photos/1200/800?rand=3">
+                <img src="https://picsum.photos/600/400?rand=3" alt="An image description" >
+                <figcaption>The text of the figcaption</figcaption>
+            </figure>
+            <figure class="alternating-figure" photo-gallery-big-src="https://picsum.photos/1200/800?rand=4">
+                <img src="https://picsum.photos/600/400?rand=4" alt="An image description" >
+                <figcaption>The text of the figcaption</figcaption>
+            </figure>
+            <figure class="alternating-figure" photo-gallery-big-src="https://picsum.photos/1200/800?rand=5">
+                <img src="https://picsum.photos/600/400?rand=5" alt="An image description" >
+                <figcaption>The text of the figcaption</figcaption>
+            </figure>
+            <figure class="alternating-figure" photo-gallery-big-src="https://picsum.photos/800/1200?rand=6">
+                <img src="https://picsum.photos/600/400?rand=6" alt="An image description" >
+                <figcaption>The text of the figcaption</figcaption>
+            </figure>
+            <figure class="alternating-figure" photo-gallery-big-src="https://picsum.photos/1200/800?rand=7">
+                <img src="https://picsum.photos/600/400?rand=7" alt="An image description" >
+                <figcaption>The text of the figcaption</figcaption>
+            </figure>
+            <figure class="alternating-figure" photo-gallery-big-src="https://picsum.photos/1200/800?rand=8">
+                <img src="https://picsum.photos/600/400?rand=8" alt="An image description" >
+                <figcaption>The text of the figcaption</figcaption>
+            </figure>
+            <figure class="alternating-figure" photo-gallery-big-src="https://picsum.photos/1200/800?rand=9">
+                <img src="https://picsum.photos/600/400?rand=9" alt="An image description" >
+                <figcaption>The text of the figcaption</figcaption>
+            </figure>
+
+
+            
+        </div>
+            <!-- THIS IS ADDED AUTOMATICALLY WITH JS
+            <div class="photo-gallery-big-img-background-div show">
+                <div class="photo-gallery-big-img-container">
+                    <img src="https://picsum.photos/600/400?rand=7" alt="" class="photo-gallery-big-img">
+                    <div class="photo-gallery-background-close-div">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="photo-gallery-background-next-div">
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                    <div class="photo-gallery-background-prev-div">
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            -->
+    
+    </div>
+    
+
+</body>
+</html>
+
+*/
+
+
+
+
+
+/*Media queries contains some variables. Modify them or, if
+media queries are removed, put them on the appropiate block*/
+
+/* Extra small devices (phones, 600px and down) *//*xs*/
+@media only screen and (max-width: 600px) {
+    .photo-gallery {--figure-max-width: 100px;}
+    .photo-gallery figure{margin: 0.2rem; font-size: 0.8rem}
+}
+/* Small devices (portrait tablets and large phones, 600px and up) *//*sm*/
+@media only screen and (min-width: 600px) {
+    .photo-gallery {--figure-max-width: 150px;}
+    .photo-gallery figure{margin: 0.4rem}
+
+}
+/* Medium devices (landscape tablets, 768px and up) *//*md*/
+@media only screen and (min-width: 768px) {
+    .photo-gallery {--figure-max-width: 200px;}
+    .photo-gallery figure{margin: 0.6rem}
+}
+/* Large devices (laptops/desktops, 992px and up) *//*lg*/
+@media only screen and (min-width: 992px) {
+    .photo-gallery {--figure-max-width: 300px;}
+    .photo-gallery figure{margin: 0.8rem}
+}
+
+
+.photo-gallery {
+    box-sizing:content-box;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.photo-gallery figure {
+    /*flex-grow: 1;
+    flex-shrink: 1;*/
+
+    position: relative;
+    max-width: var(--figure-max-width);
+    cursor: pointer;
+    transition: 0.3s max-width;
+}
+
+.photo-gallery figure img {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.photo-gallery figure figcaption {
+    position: absolute;
+    bottom: 0;
+    padding: 0.5rem;
+    background-color: #00000055;
+    color: white;
+    display: block;
+    width: calc(100% - 1rem);
+    transform: scale(1,0);
+    transition: 0.3s 0.3s transform;
+    transform-origin: bottom;
+}
+
+.photo-gallery figure:hover figcaption{
+    transform: scale(1,1);
+}
+
+
+/************** Big img*****************/
+
+.photo-gallery-big-img-background-div{
+    --close-button-size:30px;
+    --close-button-color: #eee;
+    --close-button-background: #333;
+    --control-button-color: #333;
+    --control-button-background: #eeeeee77;
+
+    position:fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000055;
+    z-index: 10;
+}
+.photo-gallery-big-img-background-div.show{
+    display: flex;
+}
+
+.photo-gallery-big-img-container {
+    box-shadow: 0px 0px 4px 4px black;
+    border: 2px solid white;
+    position:relative;
+    padding: 0;
+    transform: translateX(calc(var(--close-button-size) / -4));
+    max-width: calc(90vw - var(--close-button-size));
+    
+}
+
+.photo-gallery-big-img-container img{
+    display: block;
+    margin: 0;
+    width: 100%;
+    max-height: calc(90vh - var(--close-button-size));
+}
+
+.photo-gallery-background-close-div {
+    box-sizing: border-box;
+    height: var(--close-button-size);
+    width: var(--close-button-size);
+    border: solid var(--close-button-color);
+    border-radius: 50%;
+    position: absolute;
+    top: calc(var(--close-button-size) * -0.5);
+    right: calc(var(--close-button-size) * -0.5);
+    background-color: var(--close-button-background);
+    cursor: pointer;
+}
+.photo-gallery-background-close-div div {
+    position: absolute;
+    top: calc(50% - 2px);
+    left: calc(calc(50% - calc(calc(var(--close-button-size) * 0.4) / 2)) - 2px);
+    border: 2px solid var(--close-button-color);
+    background-color: var(--close-button-color);
+    width: calc(var(--close-button-size) * 0.4);
+    border-radius: 15px;
+}
+.photo-gallery-background-close-div div:last-child {
+    transform: rotate(45deg);
+}
+.photo-gallery-background-close-div div:first-child {
+    transform: rotate(-45deg);
+}
+
+.photo-gallery-background-next-div {
+    display: none;
+    box-sizing: border-box;
+    height: var(--close-button-size);
+    width: var(--close-button-size);
+    border: solid white;
+    box-shadow: 0px 0px 2px 2px black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    background-color: var(--control-button-background);
+    cursor: pointer;
+}
+.photo-gallery-background-next-div div{
+    position: absolute;
+    top: calc(50% - 2px);
+    left: calc(calc(50% - calc(calc(var(--close-button-size) * 0.6) / 2)) - 2px);
+    border: 2px solid var(--control-button-color);
+    background-color: var(--control-button-color);
+    
+    width: calc(var(--close-button-size) * 0.4);
+    
+    border-radius: 15px;
+}
+.photo-gallery-background-next-div div:last-child {
+    transform: translateX(calc(var(--close-button-size) * 0.05)) rotate(45deg) translateX(1px);
+    transform-origin: right;
+}
+.photo-gallery-background-next-div div:first-child {
+    transform: translateX(calc(var(--close-button-size) * 0.05)) rotate(-45deg) translateX(1px);
+    transform-origin: right;
+}
+
+.photo-gallery-background-prev-div {
+    display: none;
+    box-sizing: border-box;
+    height: var(--close-button-size);
+    width: var(--close-button-size);
+    border: solid white;
+    box-shadow: 0px 0px 2px 2px black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    background-color: var(--control-button-background);
+    cursor: pointer;
+}
+.photo-gallery-background-prev-div div{
+    position: absolute;
+    top: calc(50% - 2px);
+    left: calc(calc(50% - calc(calc(var(--close-button-size) * 0.6) / 2)) - 2px);
+    border: 2px solid var(--control-button-color);
+    background-color: var(--control-button-color);
+    width: calc(var(--close-button-size) * 0.4);
+    border-radius: 15px;
+}
+.photo-gallery-background-prev-div div:last-child {
+    transform: translateX(calc(var(--close-button-size) * 0.1)) rotate(45deg) translateX(-1px);
+    transform-origin: left;
+}
+.photo-gallery-background-prev-div div:first-child {
+    transform: translateX(calc(var(--close-button-size) * 0.1)) rotate(-45deg) translateX(-1px);
+    transform-origin: left;
+}
+
+.photo-gallery-big-img-container:hover .photo-gallery-background-prev-div,
+.photo-gallery-big-img-container:hover .photo-gallery-background-next-div{
+    display: block;
+}
