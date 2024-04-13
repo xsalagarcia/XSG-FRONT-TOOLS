@@ -47,6 +47,9 @@ A simple widget of lateral links that should show icons.
 ## menu-bar2
 A responsive menu bar with two levels (second level optional).
 
+## phto-gallery
+Shows little images, and when image is clicked, a big image will be shown. Navigation with the big images is allowed.
+
 ## prompter-horizontal
 Prompter horizontal. Shows the div inside from right to left in a infinite animation. When hover, the animation is paused.
 
