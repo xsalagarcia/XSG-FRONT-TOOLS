@@ -30,6 +30,7 @@ https://icons.getbootstrap.com/
 .bs-icons-chevron-down::before{content: "\F282";} /*down, chevron-down, chevron*/
 .bs-icons-chevron-down::before{content: "\F286";} /*down, chevron-down, chevron*/
 .bs-icons-type-bold::before{content: "\F5F0";} /*text, type, bold*/
+.bs-icons-type-underline::before{content: "\F5F6";} /*text, type, underline*/
 .bs-icons-type-italic::before{content: "\F5F4";} /*text, type, italic*/
 .bs-icons-type-h1::before{content: "\F5F1";} /*text, type, heading, h1*/
 .bs-icons-type-h2::before{content: "\F5F2";} /*text, type, heading, h2*/

@@ -129,6 +129,10 @@ class Cislider {
         });
     }
 
+    /**
+     * 
+     * @param {Cislider} cislider 
+     */
     autoChange(cislider){
         if (cislider.indexCircles)
             cislider.indexCircles[cislider.position].classList.remove("active");

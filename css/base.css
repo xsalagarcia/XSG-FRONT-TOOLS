@@ -120,7 +120,6 @@ td, th{
 /*******Forms*********/
 textarea {
     width: 100%;
-    max-width: 400px;
     min-height: 10rem;
     resize:vertical; /*allows vertical redimension*/
     background-color: transparent;
