@@ -1,6 +1,6 @@
 //with bmenu.css
 
-addEventListener('DOMContentLoaded', () => {
+(function () {
     const btn_menu = document.querySelector('.bmenu-icon')
     if (btn_menu) {
         btn_menu.addEventListener('click', () => {
@@ -10,4 +10,4 @@ addEventListener('DOMContentLoaded', () => {
         })
         
     }
-})
+})();

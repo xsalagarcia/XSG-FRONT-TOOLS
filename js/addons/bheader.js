@@ -1,6 +1,6 @@
 //with bheader.css
 
-addEventListener('DOMContentLoaded', () => {
+(function () {
     const btn_menu = document.querySelector('.bheader-icon')
     if (btn_menu) {
         btn_menu.addEventListener('click', () => {
@@ -10,4 +10,6 @@ addEventListener('DOMContentLoaded', () => {
         })
         
     }
-})
+})();
+        
+
