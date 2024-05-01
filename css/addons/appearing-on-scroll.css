@@ -1,0 +1,97 @@
+/** Blocks that appears when scroll is done**/
+/** Author: xsg */
+/* Depends on:
+ * js/appearing-on-scroll.js
+ * 
+ */
+
+
+/*Use this to test and build it: */
+/*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/addons/appearing-on-scroll.css"> <!-- !!! -->
+    <script src="js/addons/appearing-on-scroll.js" defer></script> <!-- !!! -->
+    <title>Document</title>
+
+    <style>
+
+        body {
+            background-color: beige;
+        }
+        .wrapper{
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+        h1{
+            box-sizing: border-box;
+            margin: 0;
+            min-height: 100vh;
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <h1>Appearing on scroll</h1>
+        <div class="appearing-section">
+            <h2>An appearing section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis perferendis, repudiandae omnis delectus impedit molestiae sapiente tenetur, ea odit et ratione commodi iste optio in culpa, nihil velit recusandae minus?</p>
+            <p>Amet voluptas, quam itaque ex enim minus officia quo nesciunt unde illo ullam possimus hic et veritatis voluptatibus quibusdam sint iste. Esse similique alias rem omnis pariatur cupiditate nostrum tempore!</p>
+        </div>
+        <div class="appearing-section">
+            <h2>An appearing section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis perferendis, repudiandae omnis delectus impedit molestiae sapiente tenetur, ea odit et ratione commodi iste optio in culpa, nihil velit recusandae minus?</p>
+            <p>Amet voluptas, quam itaque ex enim minus officia quo nesciunt unde illo ullam possimus hic et veritatis voluptatibus quibusdam sint iste. Esse similique alias rem omnis pariatur cupiditate nostrum tempore!</p>
+        </div>
+        <div class="appearing-section">
+            <h2>An appearing section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis perferendis, repudiandae omnis delectus impedit molestiae sapiente tenetur, ea odit et ratione commodi iste optio in culpa, nihil velit recusandae minus?</p>
+            <p>Amet voluptas, quam itaque ex enim minus officia quo nesciunt unde illo ullam possimus hic et veritatis voluptatibus quibusdam sint iste. Esse similique alias rem omnis pariatur cupiditate nostrum tempore!</p>
+        </div>
+        <div class="appearing-section">
+            <h2>An appearing section</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis perferendis, repudiandae omnis delectus impedit molestiae sapiente tenetur, ea odit et ratione commodi iste optio in culpa, nihil velit recusandae minus?</p>
+            <p>Amet voluptas, quam itaque ex enim minus officia quo nesciunt unde illo ullam possimus hic et veritatis voluptatibus quibusdam sint iste. Esse similique alias rem omnis pariatur cupiditate nostrum tempore!</p>
+        </div>
+    </div>
+</body>
+</html>
+
+*/
+
+.appearing-section{
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 100vh;
+    display: flex row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: all 0.7s;
+}
+/*Comment the next two blocks or modify them to change odd-event styles*/
+.appearing-section:nth-child(2n){
+    background-color: white;
+    color: black;
+    transform: translateX(-100%);
+}
+.appearing-section:nth-child(2n+1){
+    background-color: black;
+    color: white;
+    transform: translateX(100%);
+}
+
+.appearing-section.active{
+    opacity: 1;
+    transform: translateX(0%);
+}
