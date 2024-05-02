@@ -1,0 +1,53 @@
+/*
+Theme definition. Colors
+*/
+/* Color, from High to low*/
+body { /*Default, no specific class needed*/
+    --color-6: #062749;
+    --color-5: #034AA6;
+    --color-4: #049DD9;
+    --color-3: #6BF2F2;
+    --color-2: #BCFDFF;
+    --color-1: #EFFFFF;
+    --contrast-color-6: #CA2F37;
+    --contrast-color-5: #9A2C44;
+    --contrast-color-4: #6B305F;
+    --contrast-color-3: #BD5D8D;
+    --contrast-color-2: #B993A6;
+    --contrast-color-1: #F0D3A7;
+    --gray-6: #212529;
+    --gray-5: #595959;
+    --gray-4: #7F7F7F;
+    --gray-3: #A5A5A5;
+    --gray-2: #CCCCCC;
+    --gray-1: #F2F2F2;
+    --transparent: #ffffff00;
+    --black-transparent-1: #00000000;
+    --black-transparent-2: #00000022;
+    --black-transparent-3: #00000044;
+    --black-transparent-4: #00000066;
+    --black-transparent-5: #00000088;
+    --black-transparent-6: #000000aa;
+    --white-transparent-1: #FFFFFF00;
+    --white-transparent-2: #FFFFFF22;
+    --white-transparent-3: #FFFFFF44;
+    --white-transparent-4: #FFFFFF66;
+    --white-transparent-5: #FFFFFF88;
+    --white-transparent-6: #FFFFFFaa;
+}
+
+/*It has to be used at the parent container (i.e. body). Type this class at the parent container*/
+.invert-default-colors { 
+    --color-6: #CA2F37;
+    --color-5: #9A2C44;
+    --color-4: #6B305F;
+    --color-3: #BD5D8D;
+    --color-2: #B993A6;
+    --color-1: #F0D3A7;
+    --contrast-color-6: #062749;
+    --contrast-color-5: #034AA6;
+    --contrast-color-4: #049DD9;
+    --contrast-color-3: #6BF2F2;
+    --contrast-color-2: #BCFDFF;
+    --contrast-color-1: #EFFFFF;
+}
