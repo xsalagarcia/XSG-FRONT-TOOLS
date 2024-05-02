@@ -1,0 +1,29 @@
+body { /*Default*/
+    --header-font: Arvo;
+    --body-font: Arvo;
+}
+
+@font-face {
+    font-family:'Arvo';
+    src: url('../../fonts/other-fonts/Arvo/Arvo-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Arvo';
+    src: url('../../fonts/other-fonts/Arvo/Arvo-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family:'Arvo';
+    src: url('../../fonts/other-fonts/Arvo/Arvo-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family:'Arvo';
+    src: url('../../fonts/other-fonts/Arvo/Arvo-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}

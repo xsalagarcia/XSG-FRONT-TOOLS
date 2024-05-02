@@ -4,7 +4,11 @@
 css/
 │
 ├── colors/
-│   └── my-color-schema.css
+│   │── my-color-schema.css
+│   └── ...
+├── fonts/
+│   ├── merriweather-roboto-font.css
+│   └── ...
 ├── addons/
 │   ├── bheader.css
 │   ├── bmenu.css
@@ -48,12 +52,15 @@ CSS files at relative root are considered basic, and ```colors/my-color-schema.c
 ### reset.css
 This file resets the css styiles. From http://meyerweb.com/eric/tools/css/reset/ 
 
-### colors/my-color-schema.css
-Contains a color schema. Sets color variables used in other css files.
+### colors folder
+Contains color schemas. Sets color variables used in other css files.
+
+### fonts folder
+Contains css files to set default font. Each file contains only one or two fonts to be used as a default font (Sets header and content font).
 
 ### fonts.css
 Sets variables used in other css files related with fonts. If you want to use other than default fonts,
-sets the appropiate class to the container (i.e. ```<body class="roboto-merriweather">```). If not, a default theme is applied with serif font for headers ```<h1> ... <h6>``` and sans serif for other elements.
+sets the appropiate class to the container (i.e. ```<body class="roboto-merriweather">```). If not, a default theme is applied with serif font for headers ```<h1> ... <h6>``` and sans serif for other elements. Use this file if you want to use a a lot of fonts. If not, use [fonts folder](#fonts-folder) files
 
 ### base.css
 Complements [reset.css](#resetcss), giving a basic format to different elements such as p, h1-h6...

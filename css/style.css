@@ -248,6 +248,7 @@ INDEX
 /******************* FX - Animations *****************/
 
 /* scale-on-focus-n class*/
+.scale-on-focus-1050:hover {transform: scale(1.050, 1.050);}
 .scale-on-focus-1075:hover {transform: scale(1.075, 1.075);}
 .scale-on-focus-1100:hover {transform: scale(1.1, 1.1);}
 .scale-on-focus-1125:hover {transform: scale(1.125, 1.125);}
