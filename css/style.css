@@ -17,7 +17,7 @@ INDEX
     7-  Colors
     8-  FX - Animations
     9-  Other resources
-/********************** TEXT *************************/
+/********************** TEXT FORMAT *************************/
 .text-align-justify {text-align: justify;}
 .text-align-center {text-align: center;}
 .text-align-right {text-align: right;}
@@ -264,6 +264,56 @@ INDEX
     z-index: 1;
 }
 
+
+/******************* FORM TUNNING ****************/
+
+        /**Toggle-button**/
+        /*html example:
+            <div class="toggle-button">
+                <input type="checkbox" name="" id="toggle-button-example" class="toggle-button-input">
+                <label for="toggle-button-example" class="graphic"></label>
+                <label for="toggle-button-example">Text del toggle button</label>
+            </div>
+        */
+        .toggle-button {
+            --size: 1em;
+            --inactive-color: var(--gray-2, #d2d2d2);
+            --active-color: var(--contrast-color-5, #20096d);
+            --inner-color: #fff;
+
+            display: flex;
+            align-items: center;
+        }
+        .toggle-button .graphic{
+            background-color: var(--inactive-color);
+            display: block;
+            min-width: calc(var(--size) * 2);
+            height: var(--size);
+            border-radius: calc(var(--size) * 2);
+            cursor: pointer;
+            position: relative;
+            transition: 0.2s;
+
+        }
+        .toggle-button .graphic::before{
+            position: absolute;
+            content: '';
+            background-color: var(--inner-color);
+            width: calc(var(--size) * 0.9);
+            height: calc(var(--size) * 0.9);
+            border-radius: 50%;
+            margin: calc(var(--size) * 0.05);
+            transition: 0.2s;
+        }
+        .toggle-button input:checked + .graphic{
+            background-color: var(--active-color);
+        }
+        .toggle-button input:checked + .graphic::before{
+            transform: translateX(var(--size));
+        }
+        .toggle-button input {
+            display: none;
+        }
 
 /******************* OTHER RESOURCES *****************/
 

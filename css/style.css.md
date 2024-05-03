@@ -61,5 +61,15 @@ The defined classes are:
     - *color-green*
 - FX - Animations
     - *scale-on-focus-n* When an element is focuses, will be scaled at n. n can be 1075; 1100; 1125; 1150. (1075 is 1.075x1.075). 
+- Form tunning
+    - *toggle-button* An ```<input type="checkbox">``` converted to a toggle button.
+    Example of use:
+        ```
+        <div class="toggle-button">
+            <input type="checkbox" name="" id="toggle-button-example" class="toggle-button-input">
+            <label for="toggle-button-example" class="graphic"></label>
+            <label for="toggle-button-example">Text del toggle button</label>
+        </div>
+        ```
 - Other
     - *noscript*: use ```<noscript class="noscript"></noscript>``` at the start of the body and the magic will be done.
