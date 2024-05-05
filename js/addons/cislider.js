@@ -31,6 +31,10 @@ class Cislider {
     /**A list with ul>li */
     listItems;
 
+    touchStartX = 0;
+
+    touchBlocked = false;
+
     /**
      * 
      * @param {HTMLDivElement} cisliderDiv 
@@ -61,7 +65,7 @@ class Cislider {
                     cisliderDiv.insertBefore(this.prevBtn, cisliderDiv.firstChild);
                     this.prevBtn.addEventListener('click', ()=>{
                         if (this.indexCircles)
-                        this.indexCircles[this.position].classList.remove("active");
+                            this.indexCircles[this.position].classList.remove("active");
                         this.position--;
                         this.setCisliderVisibleImage();
                     });
@@ -85,6 +89,40 @@ class Cislider {
                 break;
             }
         });
+
+        /*Touch screens*/
+        cisliderDiv.addEventListener("touchstart", (event) => {
+            this.touchStartX = event.touches[0].clientX;
+        });
+        cisliderDiv.addEventListener('touchmove', (event)=> {
+            event.preventDefault() ;
+                if (this.touchBlocked) 
+                    return;
+                else {
+                    this.touchBlocked = true;
+                    setTimeout(() => {this.touchBlocked = false}, 500);
+                }
+
+                if (this.touchStartX > event.touches[0].clientX){
+                    if (this.indexCircles)
+                        this.indexCircles[this.position].classList.remove("active");
+                    if (this.position < this.totalItems - 1)
+                        this.position++;
+                    else
+                        this.position = 0;
+                    this.setCisliderVisibleImage();
+                } else if (this.touchStartX < event.touches[0].clientX){
+                    if (this.indexCircles)
+                        this.indexCircles[this.position].classList.remove("active");
+                    if (this.position > 0)
+                        this.position--;
+                    else
+                        this.position = this.totalItems -1;
+                    this.setCisliderVisibleImage();
+                }
+
+                
+        }, { passive: false });
     }
 
     /**
@@ -98,7 +136,7 @@ class Cislider {
             this.index.appendChild(circle);
             this.indexCircles.push(circle);
             circle.addEventListener("click", (event) =>{
-                this.indexCircles[this.position].classList.revome("active");
+                this.indexCircles[this.position].classList.remove("active");
                 this.position = i;
                 this.setCisliderVisibleImage();
             });
@@ -115,7 +153,6 @@ class Cislider {
             clearInterval(this.intervalId);
             this.intervalId = null;
         }
-    
         if (this.nextBtn)
             this.nextBtn.style.visibility = (this.position >= this.totalItems -1)? 'hidden' : 'visible';
         if (this.prevBtn)
