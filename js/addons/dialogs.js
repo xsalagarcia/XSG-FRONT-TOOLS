@@ -12,7 +12,9 @@
  * @returns A promise, that will return true if the user has pressed OK button or false for other close actions.
  */
 function showConfirmDialog(title, content, hasClose=true, acceptButtonText = "OK", cancelButtonText = "Cancel") {
-    const dialog = createDialogBase(title, content, hasClose, {"dialog-ok-button": acceptButtonText, "dialog-cancel-button": cancelButtonText});
+    const divContent = document.createElement("div");
+    divContent.textContent = content;
+    const dialog = createDialogBase(title, divContent, hasClose, {"dialog-ok-button": acceptButtonText, "dialog-cancel-button": cancelButtonText});
     document.body.appendChild(dialog);
     const promise = new Promise((resolve, reject) => {
         dialog.querySelectorAll(".dialog button").forEach(button => {
@@ -30,7 +32,7 @@ function showConfirmDialog(title, content, hasClose=true, acceptButtonText = "OK
 /**
  * Do not call this function directly. Base dialog. This function won't show the dialog. Only returns the dialog Element.
  * @param {String | Element} title The header of the dialog.
- * @param {String | Element} content The body of the dialog.
+ * @param {Element} content The body of the dialog.
  * @param {Boolean} hasClose true will contain close button.
  * @param {Object} buttons Buttons to be inserted. Key (String) is id, value (String) is textcontent.
  * @returns Dialog element to be inserted.
@@ -45,10 +47,11 @@ function createDialogBase(title, content, hasClose, buttons){
             <div class="dialog-title">${title}</div>
             ${hasClose? '<button class="dialog-close-button"><div class="close-icon"></div></button>' : ''}
         </div>
-        <div class="dialog-content">${content}</div>
+        <div class="dialog-content"></div>
         <div class="dialog-buttons"></div>
     </div>
     `
+    dialog.querySelector(".dialog-content").appendChild(content);
     const buttonTags = [];
     for (let buttonId in buttons){
         const button = document.createElement("button");
@@ -100,7 +103,7 @@ function showLoginDialog(title, textContent, nameHint = "user", passwordHint = "
     content.appendChild(text);
     content.appendChild(textFieldsDiv);
 
-    const dialog = createDialogBase(title, content.innerHTML, hasClose, {"dialog-ok-button": acceptButtonText, "dialog-cancel-button": cancelButtonText});
+    const dialog = createDialogBase(title, content, hasClose, {"dialog-ok-button": acceptButtonText, "dialog-cancel-button": cancelButtonText});
     document.body.appendChild(dialog);
 
     const promise = new Promise((resolve, reject) => {
@@ -108,8 +111,8 @@ function showLoginDialog(title, textContent, nameHint = "user", passwordHint = "
             button.addEventListener("click", (e) => {
                 const result = {
                     buttonClicked: e.target.id,
-                    username : document.getElementById("user").value,
-                    password : document.getElementById("password").value
+                    username : userInput.value,
+                    password : passwordInput.value
                 };
                 dialog.remove();
                 resolve(result);
@@ -117,9 +120,60 @@ function showLoginDialog(title, textContent, nameHint = "user", passwordHint = "
 
         })});
     return promise;
-
 }
 
+
+function showTextAreaDialog(title, text, textAreaHint="", maxChars=200, hasClose=true, acceptButtonText = "OK", cancelButtonText = "Cancel") {
+    const content = document.createElement("div");
+    content.innerHTML = `<p>${text}</p>`;
+
+    const textarea = document.createElement("textarea");
+    textarea.style.width = "100%";
+    textarea.maxLength = 200;
+    textarea.placeholder = textAreaHint;
+    content.appendChild(textarea);
+    const dialog = createDialogBase(title, content, true, {"dialog-ok-button": acceptButtonText, "dialog-cancel-button": cancelButtonText});
+    document.body.appendChild(dialog);
+    textarea.focus();
+
+    const promise = new Promise((resolve, reject) => {
+        dialog.querySelectorAll(".dialog button").forEach(button => {
+            button.addEventListener("click", (e) => {
+                const result = {
+                    buttonClicked: e.target.id,
+                    text : textarea.value
+                };
+                dialog.remove();
+                resolve(result);
+            }, { once: true });
+            
+        });
+
+        /*Esc key or alt enter exits dialog. alt enter equals dialog-ok-button */
+        function keyUpFunction (e){
+            if (e.key == "Escape"){
+                window.removeEventListener("keyup", keyUpFunction);
+                const result = {
+                    buttonClicked: "esc-key",
+                    text : textarea.value
+                };
+                dialog.remove();
+                resolve(result);
+            } else if (e.key == "Enter" && e.altKey){
+                window.removeEventListener("keyup", keyUpFunction);
+                const result = {
+                    buttonClicked: "dialog-ok-button",
+                    text : textarea.value
+                };
+                dialog.remove();
+                resolve(result);
+            }
+        }
+        window.addEventListener("keyup", keyUpFunction);
+    });
+    return promise;
+
+}
 /**
  * Create and show info dialog. Contains a title, some text OK button and close button.
  * @param {String} title The dialog title
@@ -127,7 +181,9 @@ function showLoginDialog(title, textContent, nameHint = "user", passwordHint = "
  * @param {String} acceptButtonText Text in the OK button. Default is OK.
  */
 function showInfoDialog(title, content, acceptButtonText = "OK"){
-    const dialog = createDialogBase(title, content, true, {"dialog-ok-button": acceptButtonText});
+    const divContent = document.createElement("div");
+    divContent.textContent = content;
+    const dialog = createDialogBase(title, divContent, true, {"dialog-ok-button": acceptButtonText});
     document.body.appendChild(dialog);
     dialog.querySelectorAll(".dialog button").forEach(button => {
         button.addEventListener("click", (e) => {
