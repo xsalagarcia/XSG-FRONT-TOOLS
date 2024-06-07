@@ -192,25 +192,7 @@ function showInfoDialog(title, content, acceptButtonText = "OK"){
     });
 }
 
-/* TODO.
-function customDialog(title, textContent, options, buttons) {
-    const content = document.createElement("div");
-    const text = document.createElement("div");
-    text.innerText = textContent;
-    content.appendChild(text);
-    content.appendChild(options);
+const publicFunctions = {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog};
 
-    const dialog = createDialogBase(title, content, buttons);
-    document.body.appendChild(dialog);
-    const promise = new Promise((resolve, reject) => {
-        dialog.querySelectorAll(".dialog button").forEach(button => {
-            button.addEventListener("click", (e) => {
-                const result = {buttonClicked: e.target.id, optionsState : options};
-                dialog.remove();
-                resolve(result);
-            }, { once: true });
-
-        })});
-
-    return promise;
-}*/
+export {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog};
+export default publicFunctions;

@@ -16,8 +16,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/addons/dialogs.css">
-    <script async src="../js/addons/dialogs.js"></script>
+    <link rel="stylesheet" href="css/addons/dialogs.css">
     <style>
 
     </style>
@@ -29,24 +28,25 @@
     <button id="show-login-dialog">Show login Dialog</button>
     <button id="show-info-dialog">Show info dialog</button>
 
-    <script>
+    <script type="module">
+        import dialogs from "js/addons/dialogs.js";
 
         document.getElementById("show-accept-cancel-dialog").addEventListener("click", () => {
-            const promiseResult = showConfirmDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
+            const promiseResult = dialogs.showConfirmDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
             promiseResult.then((value) => {
                 console.log(value);
             });
         });
 
         document.getElementById("show-login-dialog").addEventListener("click", () => {
-            const promiseResult = showLoginDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
+            const promiseResult = dialogs.showLoginDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
             promiseResult.then((value) => {
                 console.log(value);
             });
         });
 
         document.getElementById("show-info-dialog").addEventListener("click", () => {
-            showInfoDialog("The title", "Some text info could be put here");
+            dialogs.showInfoDialog("The title", "Some text info could be put here");
         })
 
 
@@ -59,11 +59,8 @@
 
 */
 
-.dialog-screen-filter * {
-    box-sizing: border-box;
-}
-
 .dialog-screen-filter {
+
     position: fixed;
     top: 0;
     left: 0;
@@ -73,101 +70,117 @@
     width: 100vw;
     height: 100vh;
     background-color: #00000033;
+
+    & * {
+        box-sizing: border-box;
+    }
+
+    & .dialog {
+        position: relative;
+        border: 1px solid black;
+        box-shadow: 0px 0px 4px 4px #bbb;
+        border-radius: 5px;
+        background-color: ghostwhite;
+        
+        & .dialog-title,
+        & .dialog-content,
+        & .dialog-buttons {
+            padding: 0 0.5rem;
+        }
+        
+        & .dialog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #999;
+
+            & .dialog-title {
+                text-align: center;
+                font-size: 1.1rem;
+                font-weight: bold;
+                flex-grow: 1;
+                
+            }
+            
+            & .dialog-close-button {
+                position: relative;
+                border: none;
+                display: block;
+                height: 28px;
+                width: 28px;
+                background-color: transparent;
+                border-radius: 50%;
+                cursor: pointer;
+                margin: 5px;
+                
+                &:hover {
+                    background-color: #00000033;
+                }
+
+                & .close-icon::before,
+                & .close-icon::after {
+                    --size: 28px;
+                    --icon-width: 3px;
+                    --length: calc(var(--size) * 0.6);
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: calc(50% - calc(var(--icon-width) / 2));
+                    right: calc(50% - calc(var(--length) / 2));
+                    background: black;
+                    height: var(--icon-width);
+                    width: var(--length);
+                    border-radius: var(--icon-width);
+                    transform-origin: center;
+                    cursor: pointer;
+                }
+
+                & .close-icon::before {
+                    transform: rotate(45deg);
+                }
+                
+                & .close-icon::after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+
+        & .dialog-content {
+            margin-top: 0.4rem;
+            padding: 0.5rem;
+        }
+        
+        & .dialog-buttons {
+            text-align: center;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+
+            & button {
+                cursor: pointer;
+                border: none;
+                padding: 0.2rem;
+                min-width: 70px;
+                background-color: #00000022;
+                border-radius: 5px;
+                margin:0 1rem;
+                
+                &:hover {
+                    background-color: #00000033;
+                }
+            }
+        }
+
+    }
 }
 
-.dialog {
-    position: relative;
-    border: 1px solid black;
-    box-shadow: 0px 0px 4px 4px #bbb;
-    border-radius: 5px;
-    background-color: ghostwhite;
-}
 
-.dialog-title,
-.dialog-content,
-.dialog-buttons {
-    padding: 0 0.5rem;
-}
 
-.dialog-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #999;
-}
 
-.dialog-title {
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
-    flex-grow: 1;
-}
 
-.dialog-close-button {
-    position: relative;
-    border: none;
-    display: block;
-    height: 28px;
-    width: 28px;
-    background-color: transparent;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 5px;
-}
 
-.dialog-close-button:hover {
-    background-color: #00000033;
-}
 
-.dialog .close-icon::before,
-.dialog .close-icon::after {
-    --size: 28px;
-    --icon-width: 3px;
-    --length: calc(var(--size) * 0.6);
-    content: "";
-    display: block;
-    position: absolute;
-    top: calc(50% - calc(var(--icon-width) / 2));
-    right: calc(50% - calc(var(--length) / 2));
-    background: black;
-    height: var(--icon-width);
-    width: var(--length);
-    border-radius: var(--icon-width);
-    transform-origin: center;
-    cursor: pointer;
-}
 
-.dialog .close-icon::before {
-    transform: rotate(45deg);
-}
 
-.dialog .close-icon::after {
-    transform: rotate(-45deg);
-}
-
-.dialog-content {
-    margin-top: 0.4rem;
-    padding: 0.5rem;
-}
-
-.dialog-buttons {
-    text-align: center;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-.dialog-buttons button {
-    cursor: pointer;
-    border: none;
-    padding: 0.2rem;
-    min-width: 70px;
-    background-color: #00000022;
-    border-radius: 5px;
-    margin:0 1rem;
-}
-
-.dialog-buttons button:hover {
-    background-color: #00000033;
-}

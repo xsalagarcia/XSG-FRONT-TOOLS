@@ -25,9 +25,21 @@ https://icons.getbootstrap.com/
 }
 
 /*All icon class have to start with bs-icons*/
+.bs-icons-arrow-90deg-down::before { content: "\f10e"; }
+.bs-icons-arrow-90deg-left::before { content: "\f10f"; }
+.bs-icons-arrow-90deg-right::before { content: "\f110"; }
+.bs-icons-arrow-90deg-up::before { content: "\f111"; }
+.bs-icons-arrow-bar-down::before { content: "\f112"; }
+.bs-icons-arrow-bar-left::before { content: "\f113"; }
+.bs-icons-arrow-bar-right::before { content: "\f114"; }
+.bs-icons-arrow-bar-up::before { content: "\f115"; }
+.bs-icons-arrow-clockwise::before { content: "\f116"; }
+.bs-icons-arrow-counterclockwise::before { content: "\f117"; }
 .bs-icons-list::before {content: "\f479";}/*text, type, justify, alignment, menu, hamburger*/
 .bs-icons-x-lg::before {content: "\f659";}/*x, delete, remove, reset, clear, cancel, close, exit*/
 .bs-icons-chevron-down::before{content: "\F282";} /*down, chevron-down, chevron*/
+.bs-icons-chevron-left::before { content: "\f284"; }
+.bs-icons-chevron-right::before { content: "\f285"; }
 .bs-icons-chevron-up::before{content: "\F286";} /*down, chevron-down, chevron*/
 .bs-icons-type-bold::before{content: "\F5F0";} /*text, type, bold*/
 .bs-icons-type-underline::before{content: "\F5F6";} /*text, type, underline*/
