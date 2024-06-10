@@ -192,7 +192,45 @@ function showInfoDialog(title, content, acceptButtonText = "OK"){
     });
 }
 
-const publicFunctions = {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog};
+function showColorPickerDialog(x, y, screenFilterColor=undefined){
+    
+    const colors = ["black", "red", "orange", "yellow", "green", "blue", "indigo", "violet", "white"];
+    let colorButtons = "";
+    colors.forEach(color => {
+        colorButtons += `<button class="${color}" style="background-color:${color};"></button>`;
+    });
+    const dialog = document.createElement("div");
+    dialog.classList.add("dialog-screen-filter");
+    if (screenFilterColor)
+        dialog.style.backgroundColor = screenFilterColor;
+    dialog.innerHTML = `
+    <div class="dialog-color-picker">
+    ${colorButtons}
+    </div>
+    `;
 
-export {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog};
+    const dialogScreenFilter = dialog.querySelector(".dialog-color-picker");
+    dialogScreenFilter.style.top = `${y}px`;
+    dialogScreenFilter.style.left = `${x}px`
+    document.body.appendChild(dialog);
+    const promise = new Promise((resolve, reject) => {
+        dialog.querySelectorAll("button").forEach(button => {
+            button.addEventListener("click", (e)=> {
+                dialog.remove();
+                resolve({buttonClicked: e.target.style.backgroundColor});
+            }, {once: true});
+        });
+
+        dialog.addEventListener("click", (e)=> {
+            dialog.remove();
+            resolve({buttonClicked: "cancel"});
+        }, {once: true});
+    });
+    return promise;
+
+}
+
+const publicFunctions = {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog};
+
+export {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog};
 export default publicFunctions;

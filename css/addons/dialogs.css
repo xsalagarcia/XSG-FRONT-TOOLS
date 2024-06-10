@@ -172,15 +172,42 @@
                 }
             }
         }
+    }
 
+    & .dialog-color-picker {
+
+        background-color: ghostwhite;
+        box-shadow: 0px 0px 4px 4px #bbb;
+        padding: 0.5rem;
+        position: fixed;
+        top: 50px;
+        left: 50px;
+        border-radius: 5px;
+        border: 1px solid;
+        z-index: 100;
+        animation: 0.3s dialog-maximizing forwards;
+
+        & button {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            border: none;
+            transition: all 0.2s 0.1s;
+        &:hover{
+            transform: translateY(-4px);
+            box-shadow: 0px 2px 2px;
+            z-index: 101;
+        }
+        }
+    }
+    
+}
+@keyframes dialog-maximizing {
+    from{
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    to{
+        clip-path: polygon(-10% -10%, 110% -10%, 110% 110%, -10% 110%);
     }
 }
-
-
-
-
-
-
-
-
 
