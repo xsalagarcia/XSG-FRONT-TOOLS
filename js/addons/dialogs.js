@@ -192,6 +192,13 @@ function showInfoDialog(title, content, acceptButtonText = "OK"){
     });
 }
 
+/**
+ * 
+ * @param {Number} x 
+ * @param {Number} y 
+ * @param {Sting} screenFilterColor Will be applied as a color (could be an hex, name...)
+ * @returns Promise that will return the option.
+ */
 function showColorPickerDialog(x, y, screenFilterColor=undefined){
     
     const colors = ["black", "red", "orange", "yellow", "green", "blue", "indigo", "violet", "white"];
@@ -230,7 +237,86 @@ function showColorPickerDialog(x, y, screenFilterColor=undefined){
 
 }
 
-const publicFunctions = {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog};
+/**
+ * 
+ * @param {Number} x 
+ * @param {Number} y 
+ * @param {Array} options Strings for options, 0 if a hr line is wanted, list of strings for a submenu (first string is submenu name).
+ * I.e. ["option1", "option2", 0, "option3", ["suboptions", "suboption1", "suboption2"], "option4"]
+ * @param {String} screenFilterColor 
+ */
+function showDialogContextMenu(x, y, options, screenFilterColor=undefined){
+    const dialog = document.createElement("div");
+    dialog.classList.add("dialog-screen-filter");
+    if (screenFilterColor)
+        dialog.style.backgroundColor = screenFilterColor;
+    const dialogContextMenu = document.createElement("div");
+    dialogContextMenu.classList.add("dialog-context-menu");
+    dialogContextMenu.appendChild(createDialogContextContent(options));
+    dialogContextMenu.style.top = `${y}px`;
+    dialogContextMenu.style.left = `${x}px`
+    dialog.appendChild(dialogContextMenu);
 
-export {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog};
+    document.body.appendChild(dialog);
+    const promise = new Promise((resolve, reject) => {
+        dialog.querySelectorAll("button").forEach(button => {
+            button.addEventListener("click", (e)=> {
+                dialog.remove();
+                resolve({buttonClicked: e.target.textContent});
+            }, {once: true});
+        });
+
+        dialog.addEventListener("click", (e)=> {
+            dialog.remove();
+            resolve({buttonClicked: "cancel"});
+        }, {once: true});
+    });
+    return promise;
+
+
+
+}
+
+/**
+ * Called from showDialogContextMenu, creates the content.
+ * @param {Array} options 
+ * @returns 
+ */
+function createDialogContextContent(options){
+
+    //todo (touch)
+            /*document.querySelector(".suboptions").addEventListener("touchstart", ()=> {
+            console.log("touch start");
+            when touchstart add .active to .suboptions, and remove other .active's
+        });*/
+    const ul = document.createElement("ul");
+    options.forEach(option => {
+        if (option === 0) {
+            const hr = document.createElement("hr");
+            ul.appendChild(hr);
+        } else if (typeof option == "string") {
+            const li = document.createElement("li");
+            const button = document.createElement("button");
+            button.textContent = option;
+            li.appendChild(button);
+            ul.appendChild(li);
+        } else if (option instanceof Array) {
+            const li = document.createElement("li");
+            const div = document.createElement("div");
+            div.classList.add("suboptions");
+            const span = document.createElement("span");
+            span.textContent = option[0];
+            div.appendChild(span);
+            div.appendChild(createDialogContextContent(option.slice(1)));
+            li.appendChild(div);
+            ul.appendChild(li);
+        }
+    });
+    return ul;
+}
+
+
+const publicFunctions = {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog, showDialogContextMenu};
+
+export {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog, showDialogContextMenu};
 export default publicFunctions;

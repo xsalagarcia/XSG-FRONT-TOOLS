@@ -42,7 +42,7 @@ https://icons.getbootstrap.com/
 .bs-icons-chevron-down::before{content: "\F282";} /*down, chevron-down, chevron*/
 .bs-icons-chevron-left::before { content: "\f284"; }
 .bs-icons-chevron-right::before { content: "\f285"; }
-.bs-icons-chevron-up::before{content: "\F286";} /*down, chevron-down, chevron*/
+.bs-icons-chevron-up::before{content: "\F286";} /*up, chevron-up, chevron*/
 .bs-icons-trash::before{content: "\F5DE";} /*trash-can, garbage, delete, remove*/
 .bs-icons-type-bold::before{content: "\F5F0";} /*text, type, bold*/
 .bs-icons-type-underline::before{content: "\F5F6";} /*text, type, underline*/

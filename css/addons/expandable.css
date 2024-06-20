@@ -1,0 +1,43 @@
+@import url(../reset.css);
+@import url(../base.css);
+@import url(../bootstrap-icons.css);
+
+.expandable {
+    &>.expandable-bar {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+
+        &>.expand-button {
+            height: 24px;
+            width: 24px;
+            background-color: transparent;
+            border: none;
+            &::before {
+                display: block;
+                font-family: "bootstrap-icons";
+                content: "\F282";
+                transition: transform 0.2s;
+                cursor: pointer;
+            }
+            &:hover{
+                background-color: #00000018;
+            }
+            &:active{
+                background-color: #00000025;
+            }
+        }
+    }
+    &>.expandable-wrapper {
+        height: 0;
+        transition: height 0.2s;
+        overflow: hidden;
+        &>.expandable-content>*{
+            &:first-child{margin-top: 0;}
+            &:last-child{margin-bottom: 0;}
+        }
+    }
+    &.expanded>.expandable-bar>.expand-button::before{
+        transform: rotate(180deg);
+    }
+}

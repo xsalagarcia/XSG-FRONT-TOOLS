@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/addons/expandable.css">
+</head>
+<body>
+    <div class="expandable g1">
+        <div class="expandable-bar">
+            <div class="content">Click to expand</div>
+            <button class="expand-button"></button>
+        </div>
+        <div class="expandable-wrapper">
+            <div class="expandable-content">
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="expandable g1" id="a">
+        <div class="content">Hola</div>
+        <div class="expandable-content">
+            <p>dfsdfasd dfs gfd asf dhhhhas fas</p>
+            <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+            <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+            <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+        </div>
+    </div>
+
+    <div class="expandable g2">
+        <div class="expandable-bar">
+            <div class="content">Click to expand</div>
+            <button class="expand-button"></button>
+        </div>
+        <div class="expandable-wrapper">
+            <div class="expandable-content">
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+                    <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="expandable g2" id="b">
+        <div class="content">Hola</div>
+        <div class="expandable-content">
+            <p>dfsdfasd dfs gfd asf dhhhhas fas</p>
+            <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+            <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+            <p>dfsdfasd dfs gfd asf dfasdfas fas</p>
+        </div>
+    </div>
+
+    <p>some text below</p>
+    <script type = module>
+        import {initExpandable, createExpandable, groupExpandables} from "../js/addons/expandable.js";
+        createExpandable(document.getElementById("a"));
+        createExpandable(document.getElementById("b"));
+        document.querySelectorAll(".expandable").forEach(expandable => {
+            initExpandable(expandable);
+        });
+        
+        groupExpandables(document.querySelectorAll(".g2"));
+        groupExpandables(document.querySelectorAll(".g1"));
+    </script>
+</body>
+</html>
