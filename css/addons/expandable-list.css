@@ -4,61 +4,6 @@
  * js/expandable-list.js
  * css/bootstrap-icons.css
  */
-/*Use this to test and build it: */
-/*
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/colors/my-color-schema.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/bootstrap-icons.css"> <!--Necessary-->
-    <link rel="stylesheet" href="css/addons/expandable-list.css"> <!-- !!! -->
-    <script src="js/addons/expandable-list.js" defer></script> <!-- !!! -->
-</head>
-
-<body>
-
-    <h1>FAQs</h1>
-    <ul class="expandable-list">
-        <li>this could be a question
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi perspiciatis, fugit possimus
-                    adipisci eaque et eos delectus beatae ab tempora quidem maxime ad dolore aut itaque at provident
-                    voluptatum blanditiis?</p>
-            </div>
-        </li>
-        <li>this could be a question
-            <div>
-                <p>Nesciunt sed est dolorum ipsum culpa fuga fugit iure doloribus necessitatibus vel iste quam deserunt
-                    odio, molestias dolor ducimus libero ut saepe repudiandae dolores. Adipisci neque sunt nulla ratione
-                    minus!</p>
-            </div>
-        </li>
-        <li>this could be a question
-            <div>
-                <p>Odit, quibusdam! Cumque sequi tenetur praesentium necessitatibus ratione quasi eos laboriosam? Non,
-                    quam quidem necessitatibus cupiditate quis quo asperiores cumque pariatur voluptatibus? Dicta
-                    facilis eum quaerat aliquam, ea numquam cumque.</p>
-            </div>
-        </li>
-        <li>this could be a question
-            <div>
-                <p>Soluta, sint. Alias error magni earum doloremque accusantium, corrupti eius velit incidunt a quaerat
-                    harum esse, libero eum reprehenderit! Voluptate, nam! Obcaecati eaque minima cupiditate mollitia,
-                    nemo quia. Quae, laudantium.</p>
-            </div>
-        </li>
-    </ul>
-</body>
-
-</html>
-*/
 
 .expandable-list{
     /*Variables*/

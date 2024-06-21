@@ -3,61 +3,10 @@
  */
 /** Author: xsg */
 /* Depends on:
- * js/addons/dialogs.js
+ * js/addons/dialogs.js [module]
  * 
  */
 
-/*Use this to test and build it: */
-/*
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/addons/dialogs.css">
-    <style>
-
-    </style>
-</head>
-
-<body>
-
-    <button id="show-accept-cancel-dialog">Show Accept Cancel Dialog</button>
-    <button id="show-login-dialog">Show login Dialog</button>
-    <button id="show-info-dialog">Show info dialog</button>
-
-    <script type="module">
-        import dialogs from "js/addons/dialogs.js";
-
-        document.getElementById("show-accept-cancel-dialog").addEventListener("click", () => {
-            const promiseResult = dialogs.showConfirmDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
-            promiseResult.then((value) => {
-                console.log(value);
-            });
-        });
-
-        document.getElementById("show-login-dialog").addEventListener("click", () => {
-            const promiseResult = dialogs.showLoginDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
-            promiseResult.then((value) => {
-                console.log(value);
-            });
-        });
-
-        document.getElementById("show-info-dialog").addEventListener("click", () => {
-            dialogs.showInfoDialog("The title", "Some text info could be put here");
-        })
-
-
-
-    </script>
-</body>
-
-</html>
-
-
-*/
 
 .dialog-screen-filter {
 

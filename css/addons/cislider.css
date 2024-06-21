@@ -15,36 +15,6 @@
   *   If interval is not set, autochange won't work.
   */
 
-/*Use this to test and build it: */
-/*
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/addons/cislider.css">       <!-- !!! -->
-    <script src="js/addons/cislider.js" defer></script>          <!-- !!! -->
-</head>
-<body>
-    
-    <div style="width: 200px">
-        <div class="cislider cislider-auto" cisliderOptions="prev next index interval5000"> <!-- cisliderOptions is where you have to put the options.-->
-            <ul>
-                <li><img src="https://fakeimg.pl/300x300" alt=""></li>
-                <li><img src="https://fakeimg.pl/300x300" alt=""></li>
-                <li><img src="https://fakeimg.pl/300x300" alt=""></li>
-                <li><img src="https://fakeimg.pl/300x300" alt=""></li>
-                <li><img src="https://fakeimg.pl/300x300" alt=""></li>
-                <li><img src="https://fakeimg.pl/300x300" alt=""></li>
-            </ul>
-        </div>
-    </div>
-</body>
-</html>
-
-*/
 
 .cislider {
     width: 100%;

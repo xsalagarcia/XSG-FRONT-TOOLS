@@ -359,3 +359,13 @@ noscript.noscript::before {
     display: block;
     text-align: center;
 }
+
+
+input[type="number"].no-spin{
+    -moz-appearance: textfield;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

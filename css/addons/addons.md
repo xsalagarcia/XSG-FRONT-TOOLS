@@ -1,7 +1,7 @@
 # ADDONS
 This folder `css/addons` and its associate folder `js/addons` contains several files than adds some functionalities.
 
-Each css file contains an inital block of comments with a little example for starting. It indicates if depends on other files (basic css files of the template or js files). If there is no example inside the css file, look at [examples](../../examples) folder an html file with the same name.
+Each css file contains an inital block of comments that indicates if depends on other files (basic css files of the template or js files). If there is no example inside the css file, look at [examples](../../examples) folder an html file with the same name.
 
 In general, a css file on `css/addons` represents an addon. And if this file have a javascript code associated, the js file will be on `js/addons` with the same name.
 

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/addons/dialogs.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <button id="show-accept-cancel-dialog">Show Accept Cancel Dialog</button>
+    <button id="show-login-dialog">Show login Dialog</button>
+    <button id="show-info-dialog">Show info dialog</button>
+    <button id="show-textarea-dialog">Show textarea dialog</button>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <!--<div class="dialog-context-menu">
+        <ul>
+            <li><button>Option</button></li>
+            <li><button>Opsdffsddfstion</button></li>
+            <hr/>
+            <li><button>Option</button></li>
+            <li><div class="suboptions"><span>Submenu</span>
+                    <ul>
+                        <li><button>suboption</button></li>
+                        <li><button>subopstion</button></li>
+                        <li><button>suboption</button></li>
+                    </ul>
+                </div>
+            </li>
+            <li><button>Option</button></li>
+            <li><button>Option</button></li>
+        </ul>
+    </div>-->
+    <button id="show-color-picker-dialog">Show color-picker dialog</button>
+    <button id="show-context-menu-dialog">Show context-menu dialog</button>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+
+    <!--
+    <div class="dialog-screen-filter">
+        <div class="dialog" style="max-width: 400px;">
+            <div class="dialog-header">
+                <div class="dialog-title">
+                    Lorem ipsumdsfsdfsdfsdfsdfsdf dolor
+                </div>
+                <button class="dialog-close-button">
+                    <div class="close-icon"></div>
+                </button>
+            </div>
+            <hr>
+            <div class="dialog-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex maiores nihil
+                dolorem unde, incidunt minus ipsa eveniet. Suscipit, repellendus sequi. Veniam iusto, labore eum
+                accusantium doloremque officia libero adipisci inventore?</div>
+            <div class="dialog-buttons">
+                <button id="dialog-ok-button">OK</button>
+                <button id="dialog-cancel-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+    -->
+
+    
+
+    <script type="module">
+
+        import dialogs from "../js/addons/dialogs.js";
+
+        document.getElementById("show-accept-cancel-dialog").addEventListener("click", () => {
+            const promiseResult = dialogs.showConfirmDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
+            promiseResult.then((value) => {
+                console.log(value);
+            });
+        });
+
+        document.getElementById("show-login-dialog").addEventListener("click", () => {
+            const promiseResult = dialogs.showLoginDialog("The title", "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla");
+            promiseResult.then((value) => {
+                console.log(value);
+            });
+        });
+
+        document.getElementById("show-info-dialog").addEventListener("click", () => {
+            dialogs.showInfoDialog("The title", "Some text info could be put here");
+        });
+
+        document.getElementById("show-textarea-dialog").addEventListener("click", () => {
+            const promiseResult = dialogs.showTextAreaDialog("the title", "some text for indications");
+            promiseResult.then((value) => {
+                console.log(value);
+            });
+        });
+
+        document.getElementById("show-color-picker-dialog").addEventListener("click", (e) => {
+            const promiseResult = dialogs.showColorPickerDialog(e.clientX, e.clientY, "transparent");
+            promiseResult.then((value) => {
+                console.log(value);
+            })
+        });
+
+        document.getElementById("show-context-menu-dialog").addEventListener("click", (e) => {
+            const promiseResult = dialogs.showDialogContextMenu(e.clientX, e.clientY, 
+                ["option1", "option2", 0, "option3", ["suboptions", "suboption1", "suboption2"], "option4"],
+                "transparent");
+            promiseResult.then((value) => {
+                console.log(value);
+            })
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

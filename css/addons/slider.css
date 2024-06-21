@@ -5,36 +5,6 @@
  * 
  */
 
-/*Use this to test and build it: */
-/*
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/addons/slider.css">       <!-- !!! -->
-    <script src="js/addons/slider.js" defer></script>          <!-- !!! -->
-</head>
-
-    <div class="slides">
-        <ul class=>
-            <li>
-                <img src="https://fakeimg.pl/300x300" alt="" class="">
-            </li>
-            <li>
-                <img src="https://fakeimg.pl/300x300" alt="" class="">
-            </li>
-            <li>
-                <img src="https://fakeimg.pl/300x300" alt="" class="">
-            </li>
-        </ul>
-    </div>
-</body>
-</html>
-
-*/
 
 .slides {
     width: 200px;

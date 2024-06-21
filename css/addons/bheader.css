@@ -6,56 +6,6 @@
  * --wrapper-width and --max-wrapper-width are defined at css/base.css but have default values.
  */
 
-/*Use this to test and build it */
-/*
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/colors/my-color-schema.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/addons/bheader.css"> <!--All here-->
-    <link rel="stylesheet" href="css/custom.css">
-    <script src="js/addons/bheader.js" defer></script>
-</head>
-
-<body>
-    <noscript class="noscript"></noscript>
-    <header class="bheader">
-        <div>
-            <span class="bheader-title">xsg</span>
-            <nav>
-                
-                <ul class="">
-                    <li class="bheader-active"><a href="">start</a></li>
-                    <li><a href="">Option1</a></li>
-                    <li><a href="">Option2</a></li>
-                    <li><a href="">Option3</a></li>
-                    <li><a href="">Option4</a></li>
-
-                </ul>
-                <span class="bheader-icon bs-icons-list"></span> <!--The icon, could be an icon character-->
-
-            </nav>
-        </div>
-
-    </header>
-
-    <!--
-        Web content....
-
-    -->
-</body>
-</html>
-*/
 
 
 .bheader {

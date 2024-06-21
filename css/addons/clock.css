@@ -3,27 +3,7 @@
 /* Depends on:
  * js/addons/clock.js
  */
-/*Use this to test and build it: */
-/*
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/addons/clock.css">  <!-- !!! -->
-    <script src="js/addons/clock.js" defer></script>     <!-- !!! -->
-    <title>Document</title>
-</head>
-<body>
-    <div class="clock">
-        <div class="clock-center"></div>
-        <div class="hours"></div>
-        <div class="minutes"></div>
-        <div class="seconds"></div>
-    </div>
-</body>
-</html>
-*/
+
 
 
 .clock {

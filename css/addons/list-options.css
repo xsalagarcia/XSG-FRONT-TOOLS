@@ -4,40 +4,6 @@
  * bootstrap-icons.css
  */
 
-/*Use this to test and build it*/
-/*
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/colors/my-color-schema.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/bootstrap-icons.css">           <!-- depends!! -->
-    <link rel="stylesheet" href="css/addons/list-options.css">       <!-- !!! -->
-    <style>
-
-    </style>
-</head>
-<body>
-
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, consequuntur? Voluptatibus repellat quibusdam veniam optio voluptas ut quia, pariatur ipsum vel dignissimos rem impedit similique enim consequuntur illo repellendus accusamus?</p>
-    
-
-    <ul class="list-options">
-        <li>CA<span class="bs-icons-chevron-down"></span>
-            <ul>
-                <li><a href="">ES</a></li>
-                <li><a href="">EN</a></li>
-                <li><a href="">GA</a></li>
-            </ul>
-        </li>
-    </ul>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit fugiat praesentium odit nihil temporibus eveniet suscipit vero ipsam, magnam quisquam, minus, modi facilis consectetur earum voluptatem dignissimos molestias tempora maxime.</p>
-</body>
-</html>
-*/
 
 
 .list-options {

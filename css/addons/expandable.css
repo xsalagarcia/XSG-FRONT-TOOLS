@@ -1,6 +1,11 @@
-@import url(../reset.css);
-@import url(../base.css);
-@import url(../bootstrap-icons.css);
+/** Alternating divs. Alternating divs with a simple animation. You can set the alternating time with alternating-divs-time attribute.**/
+/** Author: xsg */
+/* Depends on:
+ * css/reset.css
+ * css/base.css
+ * css/bootstrap-icons.css
+ * js/addons/expandable.js [module]
+ */
 
 .expandable {
     &>.expandable-bar {
