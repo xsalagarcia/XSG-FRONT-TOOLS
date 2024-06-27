@@ -1,0 +1,30 @@
+/** The element appears with scroll.
+ */
+ /** Author: xsg */
+/* Depends on:
+ * js/addons/scroll-appear.js
+ * 
+ */
+
+.scroll-appear-left{
+    transform: translate(-30px, 0px);
+}
+.scroll-appear-right{
+    transform: translate(30px, 0px);
+}
+.scroll-appear-bottom{
+    transform: translate(0, 30px);
+}
+.scroll-appear-top{
+    transform: translate(0, -30px);
+}
+[class^="scroll-appear-"],
+[class*=" scroll-appear-"]{
+    opacity: 0;
+    transition: opacity 0.7s, transform 0.7s;
+    transition-delay: 0.2s, 0.2s;
+    &.show{
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}

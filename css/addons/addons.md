@@ -62,6 +62,9 @@ Prompter horizontal. Shows the div inside from right to left in a infinite anima
 ## prompter-vertical
 Prompter vertical. Shows the div inside from bottom to top in a infinite animation. When hover, the animation is paused.
 
+## scroll-appear
+The element appears with scroll.
+
 ## slider
 A very simple image (or other blocks) slider. No control options. Just automatic changes. If controls are needed, use [cislider](#cislider).
 

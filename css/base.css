@@ -120,7 +120,6 @@ td, th{
 /*******Forms*********/
 textarea {
     width: 100%;
-    min-height: 10rem;
     resize:vertical; /*allows vertical redimension*/
     background-color: transparent;
 
@@ -143,6 +142,7 @@ input[type="number"]
     border: none;
     border-bottom: 1px solid black;
     outline: none;
+    min-width: 10px;
 }
 
 input[type="text"]:hover,

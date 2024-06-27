@@ -36,6 +36,10 @@
     align-content: flex-start;      
 }
 
+.flex-nowrap{
+    flex-wrap: nowrap;
+}
+
 .justify-content-flex-end {         /*       [   ][   ][   ]*/
     justify-content: flex-end;
 }
