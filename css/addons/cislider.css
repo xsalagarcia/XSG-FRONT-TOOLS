@@ -1,7 +1,8 @@
 /** Slider with controls (optionals). Optionally timered**/
 /** Author: xsg */
 /* Depends on:
- * js/cislider.js
+ * js/addons/cislider.js
+ * css/bootstrap-icons.css
  * 
  */
 
@@ -56,7 +57,7 @@
     padding: 0.3rem;
     font-size: 2rem;
     position: absolute;
-    top: 50%;
+    top: calc(50% - 2.3rem);
     z-index: 1;
     display: inline-block;
     cursor: pointer;
@@ -64,13 +65,34 @@
     border-radius: 30%;*/
 }
 .cislider:hover>.cislider-next::before{
-    content: '>';
+    content: "\f285";
     font-weight: bold;
     right: 5px;
+    display: inline-block;
+    font-family: bootstrap-icons;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align:-0.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .cislider:hover>.cislider-prev::before{
-    content: '<';
+    content: "\f284";
+    font-weight: bold;
     left: 5px;
+    display: inline-block;
+    font-family: bootstrap-icons;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align:-0.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .cislider-circle {
