@@ -8,7 +8,7 @@
  */
 
 
-.dialog-screen-filter {
+ .dialog-screen-filter {
 
     --background-color: ghostwhite;
     --font-color: black;
@@ -31,6 +31,16 @@
 
     & * {
         box-sizing: border-box;
+    }
+
+    &>.waiting-div{
+        margin: 100px auto;
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(0, 0, 0, 0.1);
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        animation: dialog-waiting 1.5s linear infinite;
     }
 
     & .dialog {
@@ -67,19 +77,17 @@
                 display: block;
                 height: 28px;
                 width: 28px;
-                background-color: transparent;
+                
                 border-radius: 50%;
                 cursor: pointer;
                 margin: 5px;
 
-                &:hover {
-                    background-color: #00000033;
-                }
+
 
                 & .close-icon::before,
                 & .close-icon::after {
                     --size: 28px;
-                    --icon-width: 3px;
+                    --icon-width: 1px;
                     --length: calc(var(--size) * 0.6);
                     content: "";
                     display: block;
@@ -120,19 +128,9 @@
             & button {
                 cursor: pointer;
                 border: none;
-                padding: 0.2rem;
+
                 min-width: 70px;
-                background-color: var(--background-color-button);
-                border-radius: 5px;
                 margin: 0 1rem;
-
-                &:hover {
-                    background-color: var(--background-color-button-hover);
-                }
-
-                &:active {
-                    background-color: var(--background-color-button-active);
-                }
             }
         }
     }
@@ -261,5 +259,13 @@
 
     to {
         clip-path: polygon(-10% -10%, 110% -10%, 110% 110%, -10% 110%);
+    }
+}
+
+@keyframes dialog-waiting{
+    from {
+        rotate: 0;
+    }to {
+        rotate: 360deg;
     }
 }

@@ -17,15 +17,13 @@
     <button id="show-login-dialog">Show login Dialog</button>
     <button id="show-info-dialog">Show info dialog</button>
     <button id="show-textarea-dialog">Show textarea dialog</button>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
-    <p>a</p>
+    <button id="show-locking-message">Show locking message for 2 seconds</button>
+    <button id="show-waiting-animation">Show waiting animation for 2 seconds</button>
+    <button id="show-form">Show form</button>
+
+
+
+
     <!--<div class="dialog-context-menu">
         <ul>
             <li><button>Option</button></li>
@@ -128,7 +126,43 @@
             })
         });
 
+        document.getElementById("show-locking-message").addEventListener("click", (e) => {
+            const message = dialogs.showLockingMessage("The locking message", "This is a locking message that is shown during 2 seconds");
+            setTimeout(e => {
+                message.remove();}, 2000);
+        });
 
+        document.getElementById("show-waiting-animation").addEventListener("click", (e) => {
+            const animation = dialogs.showWaitingAnimation("The locking message", "This is a locking message that is shown during 2 seconds");
+            setTimeout(e => {
+                animation.remove()}, 2000);
+        })
+
+        document.getElementById("show-form").addEventListener("click", (e)=>{
+            const form = document.createElement("form");
+            form.innerHTML =`    <form>
+        <!-- Name Field (required, minimum 2 characters) -->
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" required pattern=".{2,}" title="Name must be at least 2 characters long">
+        <br><br>
+
+        <!-- Last Name Field (mandatory) -->
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required>
+        <br><br>
+                <!-- Age Field (optional, numbers only) -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" step="1" title="Please enter a valid number">
+        <br><br>
+
+
+
+        <input type="submit" value="Submit">
+    </form>`;
+            dialogs.showForm("Input the data", form).then(value => {
+                console.log(Object.fromEntries(value.entries()));
+            })
+        })
 
 
     </script>

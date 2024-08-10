@@ -19,7 +19,7 @@ function showConfirmDialog(title, content, hasClose=true, acceptButtonText = "OK
     const promise = new Promise((resolve, reject) => {
         dialog.querySelectorAll(".dialog button").forEach(button => {
             button.addEventListener("click", (e) => {
-                const result = e.target.id == "dialog-ok-button";
+                const result = e.target.getAttribute("data-option-id") == "dialog-ok-button";
                 dialog.remove();
                 resolve(result);
             }, { once: true });
@@ -27,6 +27,32 @@ function showConfirmDialog(title, content, hasClose=true, acceptButtonText = "OK
         })});
 
     return promise;
+}
+
+/**
+ * Creates and shows a dialog. Dialog will be closed if the user pushes some button.
+ * @param {String} title 
+ * @param {String | Element} content 
+ * @param {Object} options such as {"option1": "option text 1", "option2": "option text 2"...}
+ * @param {Boolean} hasClose 
+ * @returns A promise, that will return the key of the selected option. 'close' will be returned if the user clicks close button.
+ */
+function showMultioptionsDialog(title, content, options, hasClose=true){
+    const divContent = document.createElement("div");
+    divContent.textContent = content;
+    const dialog = createDialogBase(title, divContent, hasClose, options);
+    document.body.appendChild(dialog);
+    const promise = new Promise((resolve, reject) => {
+        dialog.querySelectorAll(".dialog button").forEach(button => {
+            button.addEventListener("click", (e) => {
+                const result = e.target.getAttribute("data-option-id");
+                dialog.remove();
+                resolve(result);
+            }, {once: true});
+        })
+    });
+    return promise;
+
 }
 
 /**
@@ -38,7 +64,6 @@ function showConfirmDialog(title, content, hasClose=true, acceptButtonText = "OK
  * @returns Dialog element to be inserted.
  */
 function createDialogBase(title, content, hasClose, buttons){
-
     const dialog = document.createElement("div");
     dialog.classList.add("dialog-screen-filter");
     dialog.innerHTML = `
@@ -55,7 +80,7 @@ function createDialogBase(title, content, hasClose, buttons){
     const buttonTags = [];
     for (let buttonId in buttons){
         const button = document.createElement("button");
-        button.id = buttonId;
+        button.setAttribute("data-option-id", buttonId)
         button.textContent = buttons[buttonId];
         buttonTags.push(button);
     }
@@ -110,7 +135,7 @@ function showLoginDialog(title, textContent, nameHint = "user", passwordHint = "
         dialog.querySelectorAll(".dialog button").forEach(button => {
             button.addEventListener("click", (e) => {
                 const result = {
-                    buttonClicked: e.target.id,
+                    buttonClicked: e.target.getAttribute("data-option-id"),
                     username : userInput.value,
                     password : passwordInput.value
                 };
@@ -140,7 +165,7 @@ function showTextAreaDialog(title, text, textAreaHint="", maxChars=200, hasClose
         dialog.querySelectorAll(".dialog button").forEach(button => {
             button.addEventListener("click", (e) => {
                 const result = {
-                    buttonClicked: e.target.id,
+                    buttonClicked: e.target.getAttribute("data-option-id"),
                     text : textarea.value
                 };
                 dialog.remove();
@@ -315,8 +340,71 @@ function createDialogContextContent(options){
     return ul;
 }
 
+/**
+ * Creates a dialog without buttons and returns it. The user can't interact until remove() method has been called from the returned dialog element.
+ * @param {String} title 
+ * @param {String} content 
+ * @returns {Element} The dialog, to be removed with dialog.remove();
+ */
+function showLockingMessage(title, content){
+    const divContent = document.createElement("div");
+    divContent.style.padding="0rem 2rem";
+    divContent.textContent = content;
+    const dialog = createDialogBase(title, divContent, false, {});
+    document.body.appendChild(dialog);
+    return dialog;
+}
 
-const publicFunctions = {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog, showDialogContextMenu};
+/**
+ * Shows a spin to indicate to wait.
+ * @returns The dialog, to be removed with dialog.remove();
+ */
+function showWaitingAnimation(){
+    debugger;
+    const dialog = document.createElement("div");
+    dialog.classList.add("dialog-screen-filter");
+    const animatedWaitingDiv = document.createElement("div");
+    animatedWaitingDiv.classList.add("waiting-div");
+    dialog.appendChild(animatedWaitingDiv);
+    document.body.appendChild(dialog);
+    return dialog;
+}
 
-export {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog, showDialogContextMenu};
+/**
+ * Creates a dialog that contains a form.
+ * @param {String} title 
+ * @param {HTMLFormElement} form 
+ * @param {Boolean} hasClose True is default, has close button. Its behaviour is like Cancel button.
+ * @param {String} acceptButtonText Default text is OK.
+ * @param {String} cancelButtonText Default is Cancel.
+ * @returns {FormData} related with the given form. Or null if dialog is canceled.
+ */
+function showForm(title, form, hasClose=true, acceptButtonText = "OK", cancelButtonText = "Cancel"){
+
+    const dialog = createDialogBase(title, form, hasClose, {"dialog-ok-button": acceptButtonText, "dialog-cancel-button": cancelButtonText});
+    document.body.appendChild(dialog);
+    const promise = new Promise((resolve, reject) => {
+        dialog.querySelectorAll(".dialog button").forEach(button => {
+            button.addEventListener("click", (e) => {
+                let result = null;
+                if (e.target.getAttribute("data-option-id") == "dialog-ok-button") {
+                    //TODO validar si les dades son correctes
+                    //form.checkValidity();
+                    if (!form.reportValidity()){
+                        return;
+                    }
+                    result = new FormData(form);
+                }
+                dialog.remove();
+
+                resolve(result);
+            });
+
+        })});
+
+    return promise;
+}
+const publicFunctions = {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog, showDialogContextMenu, showMultioptionsDialog, showLockingMessage, showWaitingAnimation, showForm};
+
+export {showInfoDialog, showTextAreaDialog, showLoginDialog, showConfirmDialog, showColorPickerDialog, showDialogContextMenu, showMultioptionsDialog, showLockingMessage, showWaitingAnimation, showForm};
 export default publicFunctions;
