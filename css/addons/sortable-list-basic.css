@@ -1,0 +1,19 @@
+/** sortable-list-basic.**/
+/** Author: xsg */
+/* Depends on:
+ * js/addons/sortable-list-basic.js
+ * 
+ */
+
+
+.sortable-list{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    &>li{
+        cursor: move;
+        &.sortable-list-dragging-item {
+            opacity: 0.5;
+        }
+    }
+}

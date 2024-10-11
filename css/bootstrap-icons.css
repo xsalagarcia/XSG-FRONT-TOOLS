@@ -24,6 +24,9 @@ https://icons.getbootstrap.com/
   -moz-osx-font-smoothing: grayscale;
 }
 
+.bs-icons::before{content: attr(data-icon);}
+
+
 /*All icon class have to start with bs-icons*/
 .bs-icons-arrow-90deg-down::before { content: "\f10e"; }
 .bs-icons-arrow-90deg-left::before { content: "\f10f"; }

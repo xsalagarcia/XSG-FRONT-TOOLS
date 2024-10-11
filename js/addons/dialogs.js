@@ -388,8 +388,6 @@ function showForm(title, form, hasClose=true, acceptButtonText = "OK", cancelBut
             button.addEventListener("click", (e) => {
                 let result = null;
                 if (e.target.getAttribute("data-option-id") == "dialog-ok-button") {
-                    //TODO validar si les dades son correctes
-                    //form.checkValidity();
                     if (!form.reportValidity()){
                         return;
                     }

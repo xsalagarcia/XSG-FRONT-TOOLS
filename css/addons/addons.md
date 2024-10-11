@@ -68,3 +68,5 @@ The element appears with scroll.
 ## slider
 A very simple image (or other blocks) slider. No control options. Just automatic changes. If controls are needed, use [cislider](#cislider).
 
+## sortable-list-basic
+A list that can be ordered by dragging.
