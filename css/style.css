@@ -295,53 +295,100 @@ INDEX
 
 /******************* FORM TUNNING ****************/
 
-        /**Toggle-button**/
-        /*html example:
-            <div class="toggle-button">
-                <input type="checkbox" name="" id="toggle-button-example" class="toggle-button-input">
-                <label for="toggle-button-example" class="graphic"></label>
-                <label for="toggle-button-example">Text del toggle button</label>
-            </div>
-        */
-        .toggle-button {
-            --size: 1em;
-            --inactive-color: var(--gray-2, #d2d2d2);
-            --active-color: var(--contrast-color-5, #20096d);
-            --inner-color: #fff;
+/**Toggle-button**/
+/*html example:
+    <div class="toggle-button">
+        <input type="checkbox" name="" id="toggle-button-example" class="toggle-button-input">
+        <label for="toggle-button-example" class="graphic"></label>
+        <label for="toggle-button-example">Text del toggle button</label>
+    </div>
+*/
+.toggle-button {
+    --size: 1em;
+    --inactive-color: var(--gray-2, #d2d2d2);
+    --active-color: var(--contrast-color-5, #20096d);
+    --inner-color: #fff;
 
-            display: flex;
-            align-items: center;
-        }
-        .toggle-button .graphic{
-            background-color: var(--inactive-color);
-            display: block;
-            min-width: calc(var(--size) * 2);
-            height: var(--size);
-            border-radius: calc(var(--size) * 2);
-            cursor: pointer;
-            position: relative;
-            transition: 0.2s;
+    display: flex;
+    align-items: center;
+}
+.toggle-button .graphic{
+    background-color: var(--inactive-color);
+    display: block;
+    min-width: calc(var(--size) * 2);
+    height: var(--size);
+    border-radius: calc(var(--size) * 2);
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
 
+}
+.toggle-button .graphic::before{
+    position: absolute;
+    content: '';
+    background-color: var(--inner-color);
+    width: calc(var(--size) * 0.9);
+    height: calc(var(--size) * 0.9);
+    border-radius: 50%;
+    margin: calc(var(--size) * 0.05);
+    transition: 0.2s;
+}
+.toggle-button input:checked + .graphic{
+    background-color: var(--active-color);
+}
+.toggle-button input:checked + .graphic::before{
+    transform: translateX(var(--size));
+}
+.toggle-button input {
+    display: none;
+}
+
+
+/** <input type="checkbox" id="" name="" class="checkbox-switch">*/
+input[type="checkbox"].checkbox-switch {
+    --size: 2rem;
+    --active-bg-color: green;
+    --border-width: calc(var(--size) / 16);
+    --border-color: gray;
+    --inactive-bg-color: white;
+    --color: #333;
+    visibility: hidden;
+    position: relative;
+    width: calc(var(--size) * 2);
+    &:checked{
+        &::before{
+            background-color: var(--active-bg-color);
         }
-        .toggle-button .graphic::before{
-            position: absolute;
-            content: '';
-            background-color: var(--inner-color);
-            width: calc(var(--size) * 0.9);
-            height: calc(var(--size) * 0.9);
-            border-radius: 50%;
-            margin: calc(var(--size) * 0.05);
-            transition: 0.2s;
+        &::after {
+            translate: var(--size);
         }
-        .toggle-button input:checked + .graphic{
-            background-color: var(--active-color);
-        }
-        .toggle-button input:checked + .graphic::before{
-            transform: translateX(var(--size));
-        }
-        .toggle-button input {
-            display: none;
-        }
+    }
+    &::before{
+        visibility: visible;
+        content: "";
+        display: block;
+        width: calc(var(--size) * 2);
+        height: var(--size);
+        border: solid var(--border-width) var(--border-color);
+        border-radius: var(--size);
+        transition: background-color 0.2s;
+        background-color: var(--inactive-bg-color);
+    }
+    &::after{
+        visibility: visible;
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(calc(var(--size) * 0.1) + var(--border-width) );
+        left: calc(calc(var(--size) * 0.1) + var(--border-width));
+        height: calc(var(--size) * 0.8);
+        width: calc(var(--size) * 0.8);
+        background-color: black;
+        border-radius: 50%;
+        transition: translate 0.2s;
+        background-color: var(--color);
+    }
+}
 
 /******************* OTHER RESOURCES *****************/
 
